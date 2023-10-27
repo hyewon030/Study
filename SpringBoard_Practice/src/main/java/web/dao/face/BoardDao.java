@@ -37,6 +37,15 @@ public interface BoardDao {
 	 */
 	public Board selectByBoardNo(Board viewBoard);
 
+	
+	/**
+	 * 게시글을 새로 작성한다
+	 * 
+	 * @param writeBoard
+	 * @return
+	 */
+	public Board insert(Board writeBoard);
+
 }
 
 

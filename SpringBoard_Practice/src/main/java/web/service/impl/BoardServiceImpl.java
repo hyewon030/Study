@@ -2,6 +2,8 @@ package web.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,16 @@ public class BoardServiceImpl implements BoardService {
 		
 		return boardDao.selectByBoardNo(viewBoard);
 	}
+
+	@Override
+	public Board write(Board writeBoard, HttpSession session) {
+		
+		writeBoard.setWriterId((String) session.getAttribute("id"));
+		writeBoard.setWriterNick((String) session.getAttribute("nick"));
+		
+		return boardDao.insert(writeBoard);
+	}
+
 }
 
 

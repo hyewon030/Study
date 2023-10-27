@@ -2,6 +2,8 @@ package web.service.face;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import web.dto.Board;
 import web.util.Paging;
 
@@ -36,6 +38,9 @@ public interface BoardService {
 	 * @return 조회된 상세 게시글 정보
 	 */
 	public Board view(Board viewBoard);
+
+	public Board write(Board writeBoard, HttpSession session);
+
 
 }
 

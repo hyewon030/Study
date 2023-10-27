@@ -2,6 +2,8 @@ package web.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import web.dto.Board;
 import web.service.face.BoardService;
@@ -52,6 +55,23 @@ public class BoardController {
 		
 		return "board/view";
 	}
+	
+	@GetMapping("/write") 
+	public void info(HttpSession session) {
+		session.getAttribute("id");
+		session.getAttribute("nick");
+		logger.info("id {}", session.getAttribute("id") );
+		logger.info("nick {}", session.getAttribute("nick") );
+	}
+	
+	@PostMapping("/write") 
+	public void write(Board writeBoard, HttpSession session) {
+		
+		writeBoard = boardService.write(writeBoard, session);
+		
+	}
+	
+	
 	
 }
 

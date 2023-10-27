@@ -43,6 +43,8 @@ a:hover {color: deeppink; }
 <h1>게시글 리스트</h1>
 <hr>
 
+<a href="./write"><button style="border:0" class="btnWrite" >게시글 작성</button></a><br><br>
+
 <table class="table table-striped table-hover table-sm">
 
 <colgroup>

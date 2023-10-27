@@ -45,6 +45,12 @@
 		</where>
 	</select>
 
+<!-- 	파라미터타입 = dto명 -->
+	<insert id="insert" parameterType="Board">
+		
+	</insert>
+
+
 </mapper>
 
 
