@@ -29,14 +29,14 @@
 
 <hr>
 
-<form action="./view" method="post" >
+<form action="./write" method="post" >
 <label>제목<br><input type="text" name="title" style="width:600px;height:30px;font-size:20px;"></label><br>
 <label>내용<br><input type="text" name="content" style="width:600px;height:600px;font-size:20px;"></label>
 
 <div class="text-center">
 	<a href="./list" class="btn btn-secondary">목록</a>
 	|
-	<a class="btn btn-secondary">전송</a>
+	<a href="./write"><button class="btn btn-secondary">전송</button></a>
 </div>
 </form>
 

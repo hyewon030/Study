@@ -65,10 +65,11 @@ public class BoardController {
 	}
 	
 	@PostMapping("/write") 
-	public void write(Board writeBoard, HttpSession session) {
+	public String write(Board writeBoard, HttpSession session) {
 		
 		writeBoard = boardService.write(writeBoard, session);
 		
+		return "redirect:/write";
 	}
 	
 	

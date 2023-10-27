@@ -47,9 +47,9 @@
 
 <!-- 	파라미터타입 = dto명 -->
 	<insert id="insert" parameterType="Board">
-		
+		INSERT INTO board ( board_no, title, content, writer_id, writer_nick )
+		VALUES ( board.seq_nextval, #{title}, #{content}, #{writerId}, #{writerNick} )
 	</insert>
-
 
 </mapper>
 
