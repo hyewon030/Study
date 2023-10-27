@@ -36,6 +36,23 @@ public class BoardController {
 		model.addAttribute("list", list);
 	}	
 	
+	@RequestMapping("/view")
+	public String view(Board viewBoard, Model model) {
+		
+		if( viewBoard.getBoardNo() < 1 ) {
+			return "redirect:./list";
+		}
+		
+		
+		//상세보기 게시글 조회
+		viewBoard = boardService.view(viewBoard);
+		
+		//모델값 전달
+		model.addAttribute("viewBoard", viewBoard);
+		
+		return "board/view";
+	}
+	
 }
 
 

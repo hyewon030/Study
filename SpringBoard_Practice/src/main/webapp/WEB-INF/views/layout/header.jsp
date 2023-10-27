@@ -13,6 +13,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 <style type="text/css">
+
 .wrap {
 	width: 1200px;
 }
@@ -29,9 +30,9 @@
 <div class="wrap mx-auto">
 
 <header class="header text-center my-4">
-<!-- 	<img src="../../../../resources/images/sanrio.png" width="300" height="200"> -->
-	<img src="../../../../resources/images/title.png" width="300" height="200">
-	<h1><a href="/">CAMPMING EVERY SHARE</a></h1>
+	<img src="../../../../resources/images/sea.jpg" width="100" height="100">
+<!-- 	<img src="../../../../resources/images/title.png" width="300" height="200"> -->
+<!-- 	<h1><a href="/" style="color:violet">'p'</a></h1> -->
 
 </header>
 

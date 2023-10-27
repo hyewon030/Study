@@ -29,6 +29,14 @@ public interface BoardService {
 	 */
 	public Paging getPaging(Paging param);
 
+	/**
+	 * 게시글 상세보기
+	 * 
+	 * @param viewBoard - 상세 조회할 게시글 번호 객체
+	 * @return 조회된 상세 게시글 정보
+	 */
+	public Board view(Board viewBoard);
+
 }
 
 

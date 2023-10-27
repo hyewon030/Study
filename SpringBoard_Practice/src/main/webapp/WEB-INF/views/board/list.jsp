@@ -40,7 +40,7 @@ a:hover {color: deeppink; }
 </style>
 
 <div class="container">
-<center><h1>게시글 리스트</h1>
+<h1>게시글 리스트</h1>
 <hr>
 
 <table class="table table-striped table-hover table-sm">
@@ -67,7 +67,9 @@ a:hover {color: deeppink; }
 <c:forEach var="board" items="${list }">
 	<tr>
 		<td>${board.boardNo }</td>
-		<td>${board.title }</a></td>
+		<td>
+		<a href="./view?boardNo=${board.boardNo }">${board.title }</a>
+		</td>
 		<td>${board.writerId }</td>
 		<td>${board.hit }</td>
 		<td>
