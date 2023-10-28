@@ -64,8 +64,11 @@
 </tr>
 </table>
 
-<%-- 첨부파일 --%>
 
+<%-- 첨부파일 --%>
+<c:forEach var="boardfile" items="${boardfile }">
+<a href="./download?fileNo=${boardfile.fileNo }">${boardfile.originName }</a><br>
+</c:forEach>
 
 
 
