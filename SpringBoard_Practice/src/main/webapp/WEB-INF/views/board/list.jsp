@@ -80,7 +80,7 @@ $(() => {
 	<tr>
 		<td>${board.boardNo }</td>
 		<td>
-		<a href="./view?boardNo=${board.boardNo }">${board.title }</a>
+			<a href="./view?boardNo=${board.boardNo }">${board.title }</a>
 		</td>
 		<td>${board.writerId }</td>
 		<td>${board.hit }</td>
@@ -92,9 +92,8 @@ $(() => {
 </tbody>
 </table>
 
-<button class="btn btn-primary float-start">글쓰기</button>
-<small class="float-end mb-3">total: ${paging.totalCount }</small>
-
+<button id="btnWrite" class="btn btn-primary float-start">글쓰기</button>
+<small class="float-end mb-3">total : ${paging.totalCount }</small>
 <div class="clearfix"></div>
 
 </div><!-- .container -->
