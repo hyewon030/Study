@@ -42,10 +42,12 @@ a:hover {color: deeppink; }
 <script type="text/javascript">
 $(() => {
 	$("#btnWrite").click(() => {
-		location.href="./write"
+		
+		location.href = "./write"
 		
 // 		$(location).attr("href", "./write")
-	}),
+		
+	})
 })
 </script>
 
