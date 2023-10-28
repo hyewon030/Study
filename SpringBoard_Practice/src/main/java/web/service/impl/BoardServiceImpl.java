@@ -1,16 +1,22 @@
 package web.service.impl;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.ServletContext;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import web.dao.face.BoardDao;
 import web.dto.Board;
+import web.dto.Boardfile;
 import web.service.face.BoardService;
 import web.util.Paging;
 
@@ -20,6 +26,8 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Autowired BoardDao boardDao;
 
+	@Autowired ServletContext context;
+	
 	
 	@Override
 	public List<Board> list(Paging paging) {
@@ -37,7 +45,7 @@ public class BoardServiceImpl implements BoardService {
 		
 		return paging;
 	}
-
+	
 	@Override
 	public Board view(Board viewBoard) {
 		
@@ -46,17 +54,84 @@ public class BoardServiceImpl implements BoardService {
 		
 		return boardDao.selectByBoardNo(viewBoard);
 	}
-
+	
 	@Override
-	public Board write(Board writeBoard, HttpSession session) {
+	@Transactional
+	public void write(Board writeParam, List<MultipartFile> file) {
 		
-		writeBoard.setWriterId((String) session.getAttribute("id"));
-		writeBoard.setWriterNick((String) session.getAttribute("nick"));
+		if( writeParam.getTitle() == null || "".equals(writeParam.getTitle()) ) {
+			writeParam.setTitle("(제목없음)");
+		}
 		
-		return boardDao.insert(writeBoard);
-	}
+		boardDao.insert( writeParam );
+		
+		//---------------------------------------------------------------------------
+		
+		//첨부파일이 없을 경우 처리
+		if( file.size() == 0 ) {
+			return;
+		}
 
+		for(MultipartFile f : file) {
+			this.fileinsert( f, writeParam.getBoardNo() );
+		}
+
+	}
+	
+	private void fileinsert( MultipartFile file, int boardNo ) {
+		//빈 파일 처리
+		if( file.getSize() <= 0 ) {
+			return;
+		}
+		
+		//파일이 저장될 경로
+		String storedPath = context.getRealPath("upload");
+		
+		//upload 폴더 생성
+		File storedFolder = new File(storedPath);
+		storedFolder.mkdir();
+		
+		
+		//저장될 파일 이름
+		String originName = file.getOriginalFilename();
+		String storedName = originName + UUID.randomUUID().toString().split("-")[4];
+		
+		
+		//저장할 파일 객체
+		File dest = new File(storedFolder, storedName);
+	
+		
+		try {
+			file.transferTo(dest);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		//---------------------------------------------------------------------------
+
+		Boardfile boardfile = new Boardfile();
+		boardfile.setBoardNo( boardNo );
+		boardfile.setOriginName( originName );
+		boardfile.setStoredName( storedName );
+		
+		boardDao.insertFile( boardfile );
+	}
+	
+	@Override
+	public List<Boardfile> getAttachFile(Board viewBoard) {
+		return boardDao.selectBoardfileByBoardNo( viewBoard );
+	}
+	
+	@Override
+	public Boardfile getFile(Boardfile boardfile) {
+		return boardDao.selectBoardfileByFileNo(boardfile);
+	}
 }
+
+
+
 
 
 

@@ -12,9 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import web.dto.Board;
+import web.dto.Boardfile;
 import web.service.face.BoardService;
 import web.util.Paging;
 
@@ -37,8 +38,8 @@ public class BoardController {
 		
 		model.addAttribute("paging", paging);
 		model.addAttribute("list", list);
-	}	
-	
+	}
+
 	@RequestMapping("/view")
 	public String view(Board viewBoard, Model model) {
 		
@@ -49,32 +50,49 @@ public class BoardController {
 		
 		//상세보기 게시글 조회
 		viewBoard = boardService.view(viewBoard);
-		
-		//모델값 전달
 		model.addAttribute("viewBoard", viewBoard);
+		
+		
+		//첨부파일 정보 전달
+		List<Boardfile> boardfile = boardService.getAttachFile( viewBoard );
+		model.addAttribute("boardfile", boardfile);
+		logger.info("boardfile : {}", boardfile);
 		
 		return "board/view";
 	}
+
+	@GetMapping("/write")
+	public void write() {}
 	
-	@GetMapping("/write") 
-	public void info(HttpSession session) {
-		session.getAttribute("id");
-		session.getAttribute("nick");
-		logger.info("id {}", session.getAttribute("id") );
-		logger.info("nick {}", session.getAttribute("nick") );
-	}
-	
-	@PostMapping("/write") 
-	public String write(Board writeBoard, HttpSession session) {
+	@PostMapping("/write")
+	public String writeProc(Board writeParam, List<MultipartFile> file, HttpSession session) {
+		logger.info("writeParam : {}", writeParam);
 		
-		writeBoard = boardService.write(writeBoard, session);
+		writeParam.setWriterId((String) session.getAttribute("id"));
+		writeParam.setWriterNick((String) session.getAttribute("nick"));
 		
-		return "redirect:/write";
+		boardService.write( writeParam, file );
+		logger.info("writeParam : {}", writeParam);
+		
+//		return "redirect:./list";
+		return "redirect:./view?boardNo=" + writeParam.getBoardNo();
 	}
-	
-	
+
+	@RequestMapping("/download")
+	public String down(Boardfile boardfile, Model model) {
+		
+		//첨부파일 정보 조회
+		boardfile = boardService.getFile( boardfile );
+		model.addAttribute("downFile", boardfile);
+		
+		return "down";
+	}
 	
 }
+
+
+
+
 
 
 

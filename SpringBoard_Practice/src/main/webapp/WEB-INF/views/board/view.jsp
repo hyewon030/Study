@@ -64,6 +64,11 @@
 </tr>
 </table>
 
+<%-- 첨부파일 --%>
+
+
+
+
 <div class="text-center">
 	<a href="./list" class="btn btn-secondary">목록</a>
 	

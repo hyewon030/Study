@@ -5,6 +5,12 @@
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
+<script type="text/javascript">
+$(() => {
+	$("#id").focus()
+})
+</script>
+
 <div class="container">
 <h1>회원가입</h1>
 <hr>

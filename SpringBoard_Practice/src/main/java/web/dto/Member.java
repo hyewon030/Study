@@ -1,5 +1,7 @@
 package web.dto;
 
+import java.io.Serializable;
+
 public class Member {
 
 	private String id;
@@ -43,9 +45,5 @@ public class Member {
 	public void setNick(String nick) {
 		this.nick = nick;
 	}
-
-
-	
-	
 	
 }

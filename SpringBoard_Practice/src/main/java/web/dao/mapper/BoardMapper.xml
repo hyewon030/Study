@@ -27,11 +27,11 @@
 			<include refid="selectBoard" />
 		)
 	</select>
-	
+
 	<update id="updateHit" parameterType="Board">
 		UPDATE board
 		<set>
-			hit = hit +1,
+			hit = hit + 1,
 		</set>
 		<where>
 			AND board_no = #{boardNo}
@@ -45,13 +45,50 @@
 		</where>
 	</select>
 
-<!-- 	파라미터타입 = dto명 -->
 	<insert id="insert" parameterType="Board">
+		<selectKey order="BEFORE" resultType="int" keyProperty="boardNo">
+			SELECT board_seq.nextval FROM dual
+		</selectKey>
+	
 		INSERT INTO board ( board_no, title, content, writer_id, writer_nick )
-		VALUES ( board.seq_nextval, #{title}, #{content}, #{writerId}, #{writerNick} )
+		VALUES ( #{boardNo}, #{title}, #{content}, #{writerId}, #{writerNick} )
 	</insert>
 
+	<insert id="insertFile" parameterType="Boardfile">
+		<selectKey order="BEFORE" resultType="int" keyProperty="fileNo">
+			SELECT boardfile_seq.nextval FROM dual
+		</selectKey>
+		
+		INSERT INTO boardfile ( file_no, board_no, origin_name, stored_name )
+		VALUES ( #{fileNo}, #{boardNo}, #{originName}, #{storedName} )
+	</insert>
+
+	<select id="selectBoardfileByBoardNo" resultType="Boardfile" parameterType="Board">
+		SELECT
+			file_no, board_no, origin_name, stored_name
+		FROM boardfile
+		<where>
+			board_no = #{boardNo}
+		</where>
+	</select>
+	
+	<select id="selectBoardfileByFileNo" resultType="Boardfile" parameterType="Boardfile">
+		SELECT
+			file_no, board_no, origin_name, stored_name
+		FROM boardfile
+		<where>
+			file_no = #{fileNo}
+		</where>
+	</select>
+
 </mapper>
+
+
+
+
+
+
+
 
 
 

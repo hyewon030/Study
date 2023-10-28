@@ -15,6 +15,13 @@
 	</properties>
 	<dependencies>
 
+<!-- Apache Commons Fileupload -->
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.5</version>
+</dependency>
+
 <!-- MyBatis -->
 <dependency>
     <groupId>org.mybatis</groupId>

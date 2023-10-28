@@ -3,6 +3,7 @@ package web.dao.face;
 import java.util.List;
 
 import web.dto.Board;
+import web.dto.Boardfile;
 import web.util.Paging;
 
 public interface BoardDao {
@@ -32,21 +33,46 @@ public interface BoardDao {
 	/**
 	 * 게시글 번호를 이용하여 게시글을 조회한다
 	 * 
-	 * @param viewBoard - 조회하려는 게시글의 번호 객체
+	 * @param viewBoard - 조회하려는 게시글 번호 객체
 	 * @return 조회된 게시글 정보
 	 */
 	public Board selectByBoardNo(Board viewBoard);
 
+	/**
+	 * 게시글 정보를 삽입한다
+	 * 
+	 * @param writeParam - 삽입할 게시글 정보
+	 */
+	public void insert(Board writeParam);
+
+	/**
+	 * 첨부파일 정보를 삽입한다
+	 * 
+	 * @param boardfile - 삽입할 첨부파일 정보
+	 */
+	public void insertFile(Boardfile boardfile);
+
+	/**
+	 * 게시글 번호를 이용하여 첨부파일 정보를 조회한다
+	 * 
+	 * @param viewBoard - 조회할 게시글 번호 객체
+	 * @return 조회된 첨부파일 정보
+	 */
+	public List<Boardfile> selectBoardfileByBoardNo(Board viewBoard);
 	
 	/**
-	 * 게시글을 새로 작성한다
+	 * 파일 번호를 이용하여 첨부파일 정보를 조회한다
 	 * 
-	 * @param writeBoard
-	 * @return
+	 * @param viewBoard - 조회할 파일 번호 객체
+	 * @return 조회된 첨부파일 정보
 	 */
-	public Board insert(Board writeBoard);
+	public Boardfile selectBoardfileByFileNo(Boardfile boardfile);
 
 }
+
+
+
+
 
 
 

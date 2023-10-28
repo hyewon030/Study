@@ -39,11 +39,19 @@ a:hover {color: deeppink; }
 
 </style>
 
+<script type="text/javascript">
+$(() => {
+	$("#btnWrite").click(() => {
+		location.href="./write"
+		
+// 		$(location).attr("href", "./write")
+	}),
+})
+</script>
+
 <div class="container">
 <h1>게시글 리스트</h1>
 <hr>
-
-<a href="./write"><button style="border:0" class="btnWrite" >게시글 작성</button></a><br><br>
 
 <table class="table table-striped table-hover table-sm">
 
@@ -82,6 +90,7 @@ a:hover {color: deeppink; }
 </tbody>
 </table>
 
+<button class="btn btn-primary float-start">글쓰기</button>
 <small class="float-end mb-3">total: ${paging.totalCount }</small>
 
 <div class="clearfix"></div>

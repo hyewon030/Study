@@ -2,9 +2,10 @@ package web.service.face;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+import org.springframework.web.multipart.MultipartFile;
 
 import web.dto.Board;
+import web.dto.Boardfile;
 import web.util.Paging;
 
 public interface BoardService {
@@ -39,10 +40,37 @@ public interface BoardService {
 	 */
 	public Board view(Board viewBoard);
 
-	public Board write(Board writeBoard, HttpSession session);
+	/**
+	 * 게시글 작성 처리
+	 *  + 첨부 파일을 처리한다
+	 *  (첨부 파일은 여러 개 가능)
+	 * 
+	 * @param writeParam - 게시글 정보 객체
+	 * @param file - 첨부 파일 리스트
+	 */
+	public void write(Board writeParam, List<MultipartFile> file);
 
+	/**
+	 * 게시글 번호를 이용하여 업로드된 파일의 정보를 조회한다
+	 * 
+	 * @param viewBoard - 조회할 게시글 번호를 가진 객체
+	 * @return 첨부파일 정보
+	 */
+	public List<Boardfile> getAttachFile(Board viewBoard);
+
+	/**
+	 * 파일 번호를 이용하여 업로드된 파일의 정보를 조회한다
+	 * 
+	 * @param boardfile - 조회할 파일 번호를 가진 객체
+	 * @return 파일 정보
+	 */
+	public Boardfile getFile(Boardfile boardfile);
 
 }
+
+
+
+
 
 
 
