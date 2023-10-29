@@ -30,7 +30,7 @@
 <div class="wrap mx-auto">
 
 <header class="header text-center my-4">
-	<img src="../../../../resources/images/sea.jpg" width="100" height="100">
+	<img src="../../../../resources/images/headerTest.png" width="1200" height="300">
 <!-- 	<img src="../../../../resources/images/title.png" width="300" height="200"> -->
 <!-- 	<h1><a href="/" style="color:violet">'p'</a></h1> -->
 
