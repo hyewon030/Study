@@ -78,6 +78,10 @@ $(() => {
 	<button type="reset" class="btn btn-danger" id="btnCancel">취소</button>
 </div>
 
+<div>
+
+</div>
+
 </form>
 </div>
 
