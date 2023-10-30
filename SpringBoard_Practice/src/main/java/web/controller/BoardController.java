@@ -1,5 +1,6 @@
 package web.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
 import web.dto.Board;
@@ -89,26 +91,52 @@ public class BoardController {
 		return "down";
 	}
 	
+	//---- 게시글 수정 ----
 	@GetMapping("/update")
-	public String update(Board viewBoard, List<MultipartFile> file , Model model) {
+	public String update(Board updateParam, Model model) {
 		
-		if( viewBoard.getBoardNo() < 1 ) {
+		//버튼을 눌러야 게시글 수정 버튼으로 갈 수 있음
+		if( updateParam.getBoardNo() < 1 ) {
 			return "redirect:./list";
 		}
 		
-		//상세보기 게시글 조회
-		viewBoard = boardService.view(viewBoard);
-		model.addAttribute("viewBoard", viewBoard);
+		//상세보기 페이지 아님 표시
+		updateParam.setHit(-1);
 		
+		//상세보기 게시글 조회
+		updateParam = boardService.view(updateParam);
+		model.addAttribute("updateBoard", updateParam);
 		
 		//첨부파일 정보 전달
-		List<Boardfile> boardfile = boardService.getAttachFile( viewBoard );
+		List<Boardfile> boardfile = boardService.getAttachFile( updateParam );
 		model.addAttribute("boardfile", boardfile);
-		logger.info("boardfile : {}", boardfile);
 		
 		return "board/update";
 	}
-    
+	
+	@PostMapping("/update")
+//	각 파라미터: 기준, 변경/추가/삭제
+	public String updateProc(Board updateParam, 
+			List<MultipartFile> file,
+			int[] delFileno, 
+			
+			HttpSession session,
+			
+			Model model
+			) {
+		//이쪽 덜 작성한듯~~~~~~
+		logger.info("updateParam {}", updateParam);
+		logger.info("file {}", file);
+		logger.info("delFileno {}", Arrays.toString(delFileno));
+		
+		
+		updateParam.setWriterId((String) session.getAttribute("id"));
+		updateParam.setWriterId((String) session.getAttribute("nick"));
+		
+		boardService.update(updateParam, file, delFileno);
+		
+		return "redirect: ./view?boardNo=" + updateParam.getBoardNo();
+	}
     
 	
 	
