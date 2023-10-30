@@ -72,14 +72,27 @@
 		</where>
 	</select>
 	
-<!-- 	<select id="selectBoardfileByFileNo" resultType="Boardfile" parameterType="Boardfile"> -->
-<!-- 		SELECT -->
-<!-- 			file_no, board_no, origin_name, stored_name -->
-<!-- 		FROM boardfile -->
-<!-- 		<where> -->
-<!-- 			file_no = #{fileNo} -->
-<!-- 		</where> -->
-<!-- 	</select> -->
+	<update id="update" parameterType="Board">
+		UPDATE board
+		<set>
+			, title = #{title }
+			, content = #{content }
+		</set>
+		<where>
+			board_no = #{boardNo}
+		</where>
+		
+	</update>
+
+	<delete id="deleteFiles" parameterType="int[]">
+		DELETE boardfile
+		<where>
+			file_no IN ( 1, 2, 3 )
+			<foreach collection="array" item="no" open="(" close=")" separator=",">
+				#{no}
+			</foreach>
+		</where>
+	</delete>
 
 
 </mapper>
