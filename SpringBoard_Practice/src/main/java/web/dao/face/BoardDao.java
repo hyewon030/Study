@@ -68,6 +68,18 @@ public interface BoardDao {
 	 */
 	public Boardfile selectBoardfileByFileNo(Boardfile boardfile);
 
+	/**
+	 * 게시글 번호 선택
+	 * @param boardNo
+	 * @return
+	 */
+	public Board selectBoardByBoardNo(int boardNo);
+
+	/**
+	 * 게시글 수정
+	 * @param updateParam
+	 */
+//	public void updateBoard(Board updateParam);
 }
 
 

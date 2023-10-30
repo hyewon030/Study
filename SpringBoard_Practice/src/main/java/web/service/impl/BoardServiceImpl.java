@@ -128,6 +128,8 @@ public class BoardServiceImpl implements BoardService {
 	public Boardfile getFile(Boardfile boardfile) {
 		return boardDao.selectBoardfileByFileNo(boardfile);
 	}
+
+
 }
 
 

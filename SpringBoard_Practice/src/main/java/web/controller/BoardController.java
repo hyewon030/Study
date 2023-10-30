@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import web.dto.Board;
@@ -87,6 +88,32 @@ public class BoardController {
 		
 		return "down";
 	}
+	
+	@GetMapping("/update")
+	public String update(Board viewBoard, List<MultipartFile> file , Model model) {
+		
+		if( viewBoard.getBoardNo() < 1 ) {
+			return "redirect:./list";
+		}
+		
+		//상세보기 게시글 조회
+		viewBoard = boardService.view(viewBoard);
+		model.addAttribute("viewBoard", viewBoard);
+		
+		
+		//첨부파일 정보 전달
+		List<Boardfile> boardfile = boardService.getAttachFile( viewBoard );
+		model.addAttribute("boardfile", boardfile);
+		logger.info("boardfile : {}", boardfile);
+		
+		return "board/update";
+	}
+    
+    
+	
+	
+	
+	
 	
 }
 

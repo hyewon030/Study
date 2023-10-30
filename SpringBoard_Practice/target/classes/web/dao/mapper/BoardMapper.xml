@@ -72,14 +72,15 @@
 		</where>
 	</select>
 	
-	<select id="selectBoardfileByFileNo" resultType="Boardfile" parameterType="Boardfile">
-		SELECT
-			file_no, board_no, origin_name, stored_name
-		FROM boardfile
-		<where>
-			file_no = #{fileNo}
-		</where>
-	</select>
+<!-- 	<select id="selectBoardfileByFileNo" resultType="Boardfile" parameterType="Boardfile"> -->
+<!-- 		SELECT -->
+<!-- 			file_no, board_no, origin_name, stored_name -->
+<!-- 		FROM boardfile -->
+<!-- 		<where> -->
+<!-- 			file_no = #{fileNo} -->
+<!-- 		</where> -->
+<!-- 	</select> -->
+
 
 </mapper>
 

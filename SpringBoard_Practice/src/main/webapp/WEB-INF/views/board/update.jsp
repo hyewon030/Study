@@ -28,7 +28,7 @@ $(() => {
 <!-- 스타일 적용 끝 -->
 
 <div class="container">
-<h1 style="color: deeppink">수정</h1>
+<h1 style="color: deeppink">글 작성</h1>
 <hr>
 
 <div class="col-10 mx-auto">
@@ -41,21 +41,21 @@ $(() => {
 
 <div class="form-group mb-3">
 	<label class="form-label" for="title">제목</label>
-	<input type="text" class="form-control" name="title" id="title">
+	<input type="text" class="form-control" name="title" id="title" value="${viewBoard.title }">
 </div>
 
 <div class="form-group mb-3">
 	<label class="form-label" for="content">본문</label>
-	<textarea class="form-control" name="content" id="content"></textarea>
+	<textarea class="form-control" name="content" id="content" value="${viewBoard.content }"></textarea>
 </div>
 
 <div class="form-group mb-3">
 	<label class="form-label" for="file">첨부파일</label>
-	<input type="file" class="form-control" name="file" id="file" multiple="multiple">
+	<input type="file" class="form-control" name="file" id="file" multiple="multiple" value="${file }">
 </div>
 
 <div class="text-center">
-	<button class="btn btn-primary" id="btnUpdate">완료</button>
+	<button class="btn btn-primary" id="btnUpdate">작성</button>
 	<button type="reset" class="btn btn-danger" id="btnCancel">취소</button>
 </div>
 

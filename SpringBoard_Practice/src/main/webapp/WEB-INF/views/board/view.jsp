@@ -21,6 +21,8 @@
 .content {
 	min-height: 300px;
 }
+
+
 </style>
 <!-- 스타일 적용 끝 -->
 
