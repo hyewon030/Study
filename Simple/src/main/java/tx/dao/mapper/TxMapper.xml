@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tx.dao.face.TxDao">
+
+	<insert id="insertDept">
+		INSERT INTO dept ( deptno, dname, loc )
+		VALUES ( #{deptno}, 'txTest1', 'txTest1' )
+	</insert>
+	
+	<insert id="insertDeptPlusOne">
+		INSERT INTO dept ( deptno, dname, loc )
+		VALUES ( #{deptno} + 1, 'txTest2', 'txTest2' )
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

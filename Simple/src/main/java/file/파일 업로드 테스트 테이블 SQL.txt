@@ -1,0 +1,11 @@
+DROP TABLE filetest;
+CREATE TABLE filetest (
+    fileno NUMBER PRIMARY KEY,
+    title VARCHAR2(1000),
+    origin_name VARCHAR2(2000),
+    stored_name VARCHAR2(2000) );
+    
+DROP SEQUENCE filetest_seq;
+CREATE SEQUENCE filetest_seq;
+
+SELECT * FROM filetest;
