@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
+<!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 $(() => {
 	$("#title").focus()
 	
@@ -19,23 +19,8 @@ $(() => {
 })
 </script>
 
-<!-- 스타일 적용 시작 -->
-<style type="text/css">
-@font-face {
-    font-family: 'BMJUA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-* {
-	font-family: 'BMJUA';
-}
-</style>
-<!-- 스타일 적용 끝 -->
-
 <div class="container">
-<h1 style="color: deeppink">수정</h1>
+<h1>글 작성</h1>
 <hr>
 
 <div class="col-10 mx-auto">
@@ -62,7 +47,7 @@ $(() => {
 </div>
 
 <div class="text-center">
-	<button class="btn btn-primary" id="btnUpdate">완료</button>
+	<button class="btn btn-primary" id="btnWrite">작성</button>
 	<button type="reset" class="btn btn-danger" id="btnCancel">취소</button>
 </div>
 
@@ -72,3 +57,16 @@ $(() => {
 </div><!-- .container -->
 
 <c:import url="/WEB-INF/views/layout/footer.jsp" />
+
+
+
+
+
+
+
+
+
+
+
+
+

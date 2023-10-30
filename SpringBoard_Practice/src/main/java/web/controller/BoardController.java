@@ -91,7 +91,6 @@ public class BoardController {
 		return "down";
 	}
 	
-	//---- 게시글 수정 ----
 	@GetMapping("/update")
 	public String update(Board updateParam, Model model) {
 		
@@ -116,15 +115,20 @@ public class BoardController {
 	
 	@PostMapping("/update")
 //	각 파라미터: 기준, 변경/추가/삭제
-	public String updateProc(Board updateParam, 
-			List<MultipartFile> file,
-			int[] delFileno, 
+	public String updateProc(
+			Board updateParam
+			,List<MultipartFile> file
+			,int[] delFileno
 			
-			HttpSession session,
+			,HttpSession session
+//			@SessionAttribute("id") String id
+//			@SessionAttribute("nick") String nick
 			
-			Model model
-			) {
-		//이쪽 덜 작성한듯~~~~~~
+			,Model model) {
+			
+//			updateParam.setWriterId( id );
+//			updateParam.setWriterNick( nick );
+			
 		logger.info("updateParam {}", updateParam);
 		logger.info("file {}", file);
 		logger.info("delFileno {}", Arrays.toString(delFileno));

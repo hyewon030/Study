@@ -69,32 +69,25 @@ public interface BoardDao {
 	public Boardfile selectBoardfileByFileNo(Boardfile boardfile);
 
 	/**
-	 * 게시글 번호 선택
-	 * @param boardNo
-	 * @return
-	 */
-	public Board selectBoardByBoardNo(int boardNo);
-
-	/**
-	 * 게시글에 있는 파일 정보를 조회한다
+	 * 게시글 내용을 수정한다
+	 * 제목, 본문을 주어진 게시글 번호를 이용하여 수정한다
 	 * 
-	 * @param viewBoard - 조회할 파일 객체
-	 * @return 조회된 첨부파일 정보
-	 */
-	public List<Boardfile> getAttachFile(Board viewBoard);
-
-	/**
-	 * 
-	 * @param updateParam
+	 * @param updateParam - 수정할 내용이 담긴 객체
 	 */
 	public void update(Board updateParam);
-	
+
 	/**
+	 * 기존의 첨부파일을 삭제한다
 	 * 
-	 * @param delFileno
+	 * @param delFileno - 삭제하려는 파일 번호들
 	 */
 	public void deleteFiles(int[] delFileno);
+
 }
+
+
+
+
 
 
 

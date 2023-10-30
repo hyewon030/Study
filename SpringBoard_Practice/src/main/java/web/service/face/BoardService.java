@@ -51,18 +51,33 @@ public interface BoardService {
 	public void write(Board writeParam, List<MultipartFile> file);
 
 	/**
+	 * 게시글 번호를 이용하여 업로드된 파일의 정보를 조회한다
+	 * 
+	 * @param viewBoard - 조회할 게시글 번호를 가진 객체
+	 * @return 첨부파일 정보
+	 */
+	public List<Boardfile> getAttachFile(Board viewBoard);
+
+	/**
+	 * 파일 번호를 이용하여 업로드된 파일의 정보를 조회한다
+	 * 
+	 * @param boardfile - 조회할 파일 번호를 가진 객체
+	 * @return 파일 정보
+	 */
+	public Boardfile getFile(Boardfile boardfile);
+
+	/**
 	 * 게시글 수정 처리
-	 * + 첨부 파일을 처리한다
-	 * (첨부 파일은 여러 개 가능)
-	 * + 삭제할 첨부 파일을 처리한다
+	 *  + 첨부 파일을 처리한다
+	 *  (첨부 파일은 여러 개 가능)
+	 *  + 삭제할 첨부 파일을 처리한다
 	 * 
 	 * @param updateParam - 게시글 정보 객체
 	 * @param file - 첨부 파일 리스트
 	 * @param delFileno - 삭제할 첨부 파일 번호
 	 */
 	public void update(Board updateParam, List<MultipartFile> file, int[] delFileno);
-	
-	
+
 }
 
 
