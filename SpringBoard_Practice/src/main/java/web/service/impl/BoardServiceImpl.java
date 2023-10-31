@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import web.dao.face.BoardDao;
-import web.dao.face.BoardFileDao;
 import web.dto.Board;
 import web.dto.Boardfile;
 import web.service.face.BoardService;
@@ -27,8 +26,6 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Autowired BoardDao boardDao;
 	
-	@Autowired BoardFileDao boardFileDao;
-
 	@Autowired ServletContext context;
 	
 	
@@ -166,9 +163,10 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void boardDeleteByBoardNo(Board deleteBoard) {
-		boardFileDao.deleteByBoardNo( deleteBoard );
-		boardDao.deleteByBoardNo( deleteBoard );
+	@Transactional
+	public void delete(Board deleteParam) {
+		boardDao.deleteFileByBoardNo( deleteParam );	//첨부파일 삭제
+		boardDao.deleteByBoardNo( deleteParam );		//게시글 삭제
 		
 	}
 
