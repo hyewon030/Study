@@ -143,29 +143,20 @@ public class BoardController {
 	}
     
 	@GetMapping("/delete")
-	public String delete(Board deleteParam, Model model) {
-	
-				if( deleteParam.getBoardNo() < 1 ) {
-					return "redirect:./list";
-				}
-				
-				//파일이 첨부되지 않은 게시글 삭제
-				boardService.delete(deleteParam);
-				
-				//파일이 첨부된 게시글 삭제
-				
-				
-				return "redirect:./list";
-		
+	public String delete(Board deleteBoard, Boardfile boardFile ) {
+	    // 1. 게시글 번호 조회
+	    if (deleteBoard.getBoardNo() < 1) {
+	        return "redirect:./list";
+	    }
+	    
+	    // 게시글 삭제
+	    boardService.boardDeleteByBoardNo( deleteBoard );
+	    
+	    return "redirect:./list";
 	}
-	
-	
-	
-	
+
 	
 }
-
-
 
 
 

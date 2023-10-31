@@ -93,7 +93,7 @@
 	</update>
 
 	<delete id="deleteFiles" parameterType="int[]">
-		DELETE boardfile
+		DELETE FROM boardfile
 		<where>
 			file_no IN
 			<foreach collection="array" item="no" open="(" close=")" separator=",">
@@ -102,18 +102,14 @@
 		</where>
 	</delete>
 
-	
-	<delete id="deleteBoard" parameterType="Board">
-		DELETE FROM board
+	<!-- 게시글 삭제 -->	
+	<delete id="deleteByBoardNo" parameterType="Board">
+		DELETE board
 		<where>
 			board_no = #{boardNo}
 		</where>
 	</delete>
 	
-
-
-
-
 </mapper>
 
 
