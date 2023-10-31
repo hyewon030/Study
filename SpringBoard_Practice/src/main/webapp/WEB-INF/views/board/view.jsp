@@ -72,9 +72,11 @@
 <a href="./download?fileNo=${boardfile.fileNo }">${boardfile.originName }</a><br>
 </c:forEach>
 
-
-
 <div class="text-center">
+
+
+		<a href="./recommend?boardNo=${viewBoard.boardNo }" class="btn btn-primary">추천</a><br><br>
+
 	<a href="./list" class="btn btn-secondary">목록</a>
 	
 	<c:if test="${id eq viewBoard.writerId }">

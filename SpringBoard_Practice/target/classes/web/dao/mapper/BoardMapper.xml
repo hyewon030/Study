@@ -102,7 +102,13 @@
 		</where>
 	</delete>
 
-	<!-- 게시글 삭제 -->	
+	<delete id="deleteFileByBoardNo" parameterType="Board">
+		DELETE boardfile
+		<where>
+			board_no = #{boardNo}
+		</where>
+	</delete>
+
 	<delete id="deleteByBoardNo" parameterType="Board">
 		DELETE board
 		<where>

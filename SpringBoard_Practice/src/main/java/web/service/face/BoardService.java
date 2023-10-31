@@ -79,11 +79,12 @@ public interface BoardService {
 	public void update(Board updateParam, List<MultipartFile> file, int[] delFileno);
 
 	/**
-	 * 게시글 삭제 처리
-	 * + 첨부 파일을 먼저 삭제한다
-	 * @param deleteBoard
+	 * 게시글을 삭제한다
+	 * + 첨부 파일을 먼저 삭제해준다
+	 * 
+	 * @param deleteBoard - 삭제하려는 게시글 번호 객체
 	 */
-	public void boardDeleteByBoardNo(Board deleteBoard);
+	public void delete(Board deleteBoard);
 
 
 

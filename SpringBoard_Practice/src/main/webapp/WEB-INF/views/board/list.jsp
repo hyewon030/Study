@@ -53,6 +53,11 @@ $(() => {
 </script>
 
 <div class="container">
+
+
+<a href="/member/main" class="btn btn-primary" style="color: white">메인</a><br>
+<hr>
+
 <h1>게시글 리스트</h1>
 <hr>
 
