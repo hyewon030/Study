@@ -161,6 +161,11 @@ public class BoardServiceImpl implements BoardService {
 		}
 		
 	}
+
+	@Override
+	public void delete(Board deleteParam) {
+		boardDao.deleteBoard(deleteParam);
+	}
 	
 }
 

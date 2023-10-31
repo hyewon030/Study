@@ -142,6 +142,22 @@ public class BoardController {
 		return "redirect: ./view?boardNo=" + updateParam.getBoardNo();
 	}
     
+	@GetMapping("/delete")
+	public String delete(Board deleteParam, Model model) {
+	
+				if( deleteParam.getBoardNo() < 1 ) {
+					return "redirect:./list";
+				}
+				
+				//파일이 첨부되지 않은 게시글 삭제
+				boardService.delete(deleteParam);
+				
+				//파일이 첨부된 게시글 삭제
+				
+				
+				return "redirect:./list";
+		
+	}
 	
 	
 	

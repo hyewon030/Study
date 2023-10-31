@@ -83,6 +83,13 @@ public interface BoardDao {
 	 */
 	public void deleteFiles(int[] delFileno);
 
+	/**
+	 * 게시글을 삭제한다
+	 * 
+	 * @param deleteBoard - 삭제하려는 게시글
+	 */
+	public void deleteBoard(Board deleteBoard);
+	
 }
 
 

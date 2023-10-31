@@ -102,6 +102,18 @@
 		</where>
 	</delete>
 
+	
+	<delete id="deleteBoard" parameterType="Board">
+		DELETE FROM board
+		<where>
+			board_no = #{boardNo}
+		</where>
+	</delete>
+	
+
+
+
+
 </mapper>
 
 
