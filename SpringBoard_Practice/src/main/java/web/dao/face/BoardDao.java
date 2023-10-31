@@ -98,6 +98,9 @@ public interface BoardDao {
 	 */
 	public void deleteByBoardNo(Board deleteParam);
 	
+	/**
+	 * 너는 왜 오류???
+	 */
 }
 
 
