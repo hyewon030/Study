@@ -97,10 +97,8 @@ public interface BoardDao {
 	 * @param deleteParam - 삭제하려는 게시글 번호
 	 */
 	public void deleteByBoardNo(Board deleteParam);
+
 	
-	/**
-	 * 너는 왜 오류???
-	 */
 }
 
 
