@@ -21,17 +21,16 @@
 
 /* 폰트 설정 */
 
-@font-face {
-    font-family: 'BMJUA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+.font * {
+ font-family: 'Nanum Gothic', sans-serif;
 }
 
 * {
-	font-family: 'BMJUA';
+	font-family: 'Nanum Gothic', sans-serif;
+	font-weight: lighter;
 }
-
 
 
 </style>

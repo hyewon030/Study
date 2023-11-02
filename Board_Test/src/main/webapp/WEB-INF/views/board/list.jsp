@@ -10,6 +10,7 @@
 <style type="text/css">
 table, th {
 	text-align: center;
+	width: 1180px;
 }
 
 /* 게시글 제목 */
@@ -17,15 +18,59 @@ td:nth-child(2) {
 	text-align: left;
 }
 
+tr:hover {background-color: #F2F2F2;} 
+
+th {
+  background-color: #2ECC71;
+  color: white;
+  font-weight: bold;
+}
+
+th, td {
+border-bottom: 1px solid #ddd;
+}
+
+h1 {
+font-weight: bold;
+}
+
+.btn {
+    background-color: #2ECC71;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    float: right;
+}
+
+.btn:hover {
+    background-color: #04883C; /* 마우스 호버 시 배경 색상 변경 */
+    color: white;
+}
+
+.btn:active {
+    background-color: #2ECC71; /* 버튼을 클릭할 때 배경 색상 변경 */
+    color: white;
+}
+
+hr {
+clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 */
+
+}
+
 </style>
 
 <div class="container">
-<h1 style="color:#04883C">자유게시판</h1>
-<h6 style="color: #2ECC71">캠핑 관련 게시글을 작성하고 조회할 수 있습니다.</h6>
+<h1 style="color:#2ECC71">자유게시판</h1>
+<h6 style="color: #A4A4A4">캠핑 관련 게시글을 작성하고 조회할 수 있습니다.</h6>
+
+
+<button class="btn">게시글 작성</button>
+<input type="text" placeholder="왜 마진값이 다를까~ 알 수 없다!!" style="width: 500px; border-color: #2ECC71; border-radius: 10px;">
 <hr>
 
-<table class="table table-boarded table-hover">
-	<thead class="table-success">
+<table>
+	<thead>
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
@@ -55,7 +100,7 @@ td:nth-child(2) {
 	</tr>
 	</c:forEach>
 	</tbody>
-</table>
+</table><br>
 
 </div><!-- .container -->
 
