@@ -19,16 +19,33 @@
 	width: 1200px;
 }
 
-</style>
+/* 폰트 설정 */
 
+@font-face {
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+	font-family: 'BMJUA';
+}
+
+
+
+</style>
 </head>
 <body>
+
 
 <div class="wrap mx-auto">
 
 <header class="header text-center my-4">
 <!-- 	<h1><a href="/">Camping Every Share</a></h1> -->
-	<h1>Camping Every Share</a></h1>
+	<img src="../../../../resources/images/gaemsung.png" width="1200" height="300">
+<!-- 	<h1 style="color:green;">Camping Every Share</h1> -->
+	
 </header>
 
 

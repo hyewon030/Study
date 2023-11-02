@@ -13,11 +13,19 @@
 		FROM board
 	</sql>
 
-	<select id="selectAll" resultType="Board">
-		SELECT * FROM board
-		ORDER BY board_no DESC
+	<select id="selectAll" resultType="Board" parameterType="web.util.Paging">
+		SELECT * FROM (
+		    SELECT rownum rnum, B.* FROM (
+				<include refid="selectBoard" />
+				ORDER BY board_no DESC
+		    ) B
+		) WHERE rnum BETWEEN #{startNo} AND #{endNo}
+
 	</select>
-
-
+		<select id="selectCntAll" parameterType="int">
+		SELECT count(*) FROM (
+			<include refid="selectBoard" />
+		)
+	</select>
 
 </mapper>

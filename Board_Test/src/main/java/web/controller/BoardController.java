@@ -6,12 +6,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.dao.face.BoardDao;
 import web.dto.Board;
 import web.service.face.BoardService;
+import web.util.Paging;
 
 
 @Controller
@@ -29,14 +31,18 @@ public class BoardController {
 	
 	//목록 조회
 	@GetMapping("/list")
-	public void list() {
-		
-	//board/list로 접속이 되는지?
-	logger.info("/board/list [GET]");
+	public void list( Paging param, Model model ) {
+	
+	//페이징 계산
+	Paging paging = boardService.getPaging( param );
+	logger.info("{}", paging);
 		
 	//list 조회
-	List<Board> list = boardService.list();
+	List<Board> list = boardService.list( paging );
 	
+	model.addAttribute("paging", paging);
+	model.addAttribute("list", list);
+
 	
 	}
 	
