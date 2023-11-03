@@ -32,5 +32,14 @@ public class BoardServiceImpl implements BoardService {
 		return paging;
 	}
 
+	@Override
+	public Board view(Board viewBoard) {
+		
+		//조회수 증가
+		boardDao.updateHit(viewBoard);
+		
+		return boardDao.selectByBoardNo( viewBoard );
+	}
+
 
 }

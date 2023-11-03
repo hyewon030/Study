@@ -7,34 +7,27 @@
 
 .pagination {
     display: inline-block;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.pagination li {
-    display: inline;
-    margin: 0 5px;
 }
 
 .pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
+	color: black;
+ 	float: left; 
+ 	padding: 8px 16px; 
+ 	text-decoration: none; 
+ 	transition: background-color .3s;
 }
 
-.pagination a:hover {
+.current-page {
     background-color: #2ECC71;
     color: #fff;
-    border-color: #2ECC71;
 }
 
-.pagination a:active {
-  background-color: #4CAF50;
-  color: white;
-  border-color: #007bff;
-}
+.pagination a.active { 
+   background-color: #4CAF50; 
+   color: white; 
+ } 
+
+ .pagination a:hover:not(.active) {background-color: #ddd;} 
 
 </style>
 
@@ -69,7 +62,7 @@
 
     <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">
         <c:if test="${paging.curPage eq i }">
-            <li class="pagination">
+            <li class="pagination current-page">
                 <a href="./list?curPage=${i }">${i }</a>
             </li>
         </c:if>

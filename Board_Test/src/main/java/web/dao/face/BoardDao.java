@@ -11,5 +11,9 @@ public interface BoardDao {
 
 	public int selectCntAll();
 
+	public void updateHit(Board viewBoard);
+
+	public Board selectByBoardNo(Board viewBoard);
+
 	
 }

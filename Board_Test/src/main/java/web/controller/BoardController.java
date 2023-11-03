@@ -42,8 +42,20 @@ public class BoardController {
 	
 	model.addAttribute("paging", paging);
 	model.addAttribute("list", list);
-
+	}
 	
+	@RequestMapping("/view")
+	public String view(Board viewBoard, Model model) {
+		
+		if( viewBoard.getBoardNo() < 1) {
+			return "redirect:./list";
+		}
+		
+		//상세보기 게시글 조회
+		viewBoard = boardService.view(viewBoard);
+		model.addAttribute("viewBoard", viewBoard);
+		
+		return "board/view";
 	}
 	
 	

@@ -11,5 +11,7 @@ public interface BoardService {
 
 	Paging getPaging(Paging param);
 
+	Board view(Board viewBoard);
+
 
 }

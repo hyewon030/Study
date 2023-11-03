@@ -27,5 +27,23 @@
 			<include refid="selectBoard" />
 		)
 	</select>
+	
+	<update id="updateHit" parameterType="Board">
+		UPDATE board
+		<set>
+			hit = hit + 1,
+		</set>
+		<where>
+			AND board_no = #{boardNo}
+		</where>
+	</update>
+
+	<select id="selectByBoardNo" resultType="Board" parameterType="Board">
+		<include refid="selectBoard" />
+		<where>
+			AND board_no = #{boardNo}
+		</where>
+	</select>
+
 
 </mapper>

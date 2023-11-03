@@ -92,7 +92,7 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 	<c:forEach var="board" items="${list }">
 	<tr>
 		<td>${board.boardNo }</td>
-		<td>${board.title }</td>
+		<td><a href="./view?boardNo=${board.boardNo }">${board.title }</a></td>
 		<td>${board.writerId }</td>
 		<td>${board.hit }</td>
 		<td> <fmt:formatDate value="${board.writeDate }" pattern="yyyy-MM-dd HH:mm:ss"/>
@@ -100,7 +100,10 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 	</tr>
 	</c:forEach>
 	</tbody>
-</table><br>
+</table>
+<div ustify-content: space-between;">
+<small style="float: right">total: ${paging.totalCount }</small><br>
+</div>
 
 </div><!-- .container -->
 
