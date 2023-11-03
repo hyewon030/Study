@@ -52,6 +52,11 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
     color: white;
 }
 
+.buttons .btn {
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
 .article {
 	padding: 30px;
 	border: solid;
@@ -85,10 +90,10 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 </div><!-- 글 제목 -->
 
 	<div class="writer-info">
-		<div style="padding-right: 30px;">닉네임| ${viewBoard.writerNick }</div>
-		<div style="padding-right: 500px;">아이디| ${viewBoard.writerId }</div>
-		<div style="padding-right: 30px;">작성일| ${viewBoard.writeDate }</div>
-		<div>조회수| ${viewBoard.hit }</div>
+		<div style="padding-right: 20px;">닉네임 | ${viewBoard.writerNick }</div>
+		<div style="padding-right: 480px;">아이디 | ${viewBoard.writerId }</div>
+		<div style="padding-right: 30px;">작성일 | ${viewBoard.writeDate }</div>
+		<div>조회수 | ${viewBoard.hit }</div>
 	</div><!-- 작성자 정보 -->
 </div><!-- 글 제목 + 유저 정보 -->
 
@@ -99,7 +104,7 @@ ${viewBoard.content }
 </div><!-- .content -->
 </div><!-- .article -->
 
-<div>
+<div class="buttons">
 <button class="btn">목록</button>
 <button class="btn">수정</button>
 <button class="btn">삭제</button>
