@@ -18,6 +18,10 @@ td:nth-child(2) {
 	text-align: left;
 }
 
+table tbody tr {
+	line-height: 1.8;
+}
+
 tr:hover {background-color: #F2F2F2;} 
 
 th {
@@ -58,6 +62,16 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 
 }
 
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	border-bottom: 1px solid;
+}
+
 </style>
 
 <div class="container">
@@ -65,8 +79,7 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 <h6 style="color: #A4A4A4">캠핑 관련 게시글을 작성하고 조회할 수 있습니다.</h6>
 
 
-<button class="btn">게시글 작성</button>
-<input type="text" placeholder="왜 마진값이 다를까~ 알 수 없다!!" style="width: 500px; border-color: #2ECC71; border-radius: 10px;">
+<button class="btn" style="margin-bottom: 10px;">게시글 작성</button>
 <hr>
 
 <table>

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 	
 	@RequestMapping("/")
-	public String name() {
+	public String main() {
 	
 		return "forward: /member/main";
 	}

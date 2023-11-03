@@ -76,6 +76,7 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 	justify-content: flex-start;
 }
 
+
 </style>
 
 <div class="container">

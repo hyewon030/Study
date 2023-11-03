@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.dao.face.BoardDao;
 import web.dto.Board;
+import web.dto.Boardfile;
 import web.service.face.BoardService;
 import web.util.Paging;
 
@@ -56,6 +57,7 @@ public class BoardController {
 		model.addAttribute("viewBoard", viewBoard);
 		
 		return "board/view";
+		
 	}
 	
 	
