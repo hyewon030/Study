@@ -108,7 +108,7 @@ a:hover {
 	<tr>
 		<th>번호</th>
 		<th>제목</th>
-		<th>작성자</th>
+		<th>닉네임</th>
 		<th>작성일</th>
 		<th>조회수</th>
 		<th>댓글수</th>
@@ -129,7 +129,7 @@ a:hover {
 	<tr>
 		<td>${board.boardNo }</td>
 		<td><a href="./view?boardNo=${board.boardNo }">${board.title }</a></td>
-		<td>${board.userId }</td>
+		<td>${nick.USER_NICK}</td>
 		<td> <fmt:formatDate value="${board.postDate }" pattern="yyyy-MM-dd HH:mm:ss"/>
 		</td>
 		<td>${board.hit }</td>

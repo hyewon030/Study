@@ -1,7 +1,10 @@
 package web.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.dao.face.GroupDao;
 import web.dto.BoardTb;
+import web.dto.UserTb;
 import web.service.face.GroupService;
 import web.util.Paging;
 
@@ -27,14 +31,13 @@ public class GroupController {
 	private final Logger logger = LoggerFactory.getLogger( this.getClass() );
 	
 	@RequestMapping("/list")
-	public void list( Paging param, Model model ) {
+	public void groupList( Paging param, Model model ) {
 	
 		//페이징 계산
 		Paging paging = groupService.getPaging( param );
 		logger.info("{}", paging);
 		
 		//게시글 목록 조회
-//		List<Board> list = groupService.list( paging );
 		logger.info("{}",paging.getStartNo());
 		logger.info("====================");
 		Map<String,Object> map = groupService.list( paging );
@@ -42,26 +45,33 @@ public class GroupController {
 		model.addAttribute("paging", paging);
 		
 		model.addAttribute("list", map.get("list"));
-//		model.addAttribute("list", list);		
-	}
+		
+		model.addAttribute("userNick", map.get("usernickList"));
+		
+		}
 
 	@GetMapping("/view")
-	public String view( Model model, BoardTb viewBoard ) {
+    public String groupView(BoardTb board, UserTb user, Model model, HttpSession httpSession) {
 		
-		if( viewBoard.getBoardNo() < 1 ) {
+		if( board.getBoardNo() < 1 ) {
 			return "redirect:./list";
 		}
 		
-		//상세보기 게시글 조회
-		viewBoard = groupService.view(viewBoard);
+		//1-1. 상세보기 게시글 조회
+		board = groupService.view(board);
 		
-		//모델값 전달
-		model.addAttribute("viewBoard", viewBoard);
+		//1-2. 게시판 모델값 전달
+		model.addAttribute("board", board);
+
+		//2-1. 유저 정보 가져오기
+		user.setUserId(board.getUserId());
+//	    user = groupService.getNick(user);
 		
-		return "group/view";
-		
-	}
+		//2-2. 유저 모델값 전달
+		 model.addAttribute("user", user);
 	
+        return "group/view"; 
+    }
 	
 	
 	

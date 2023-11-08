@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class UserTb {
 
-	private int userNo;
 	private String userId;
 	private String userPw;
 	private String email;
@@ -20,10 +19,9 @@ public class UserTb {
 	
 	public UserTb() {}
 
-	public UserTb(int userNo, String userId, String userPw, String email, String userName, String userNick, Date birth,
+	public UserTb(String userId, String userPw, String email, String userName, String userNick, Date birth,
 			String address, String addressDetail, int phone, int profile, Date joinDate, int userStatus) {
 		super();
-		this.userNo = userNo;
 		this.userId = userId;
 		this.userPw = userPw;
 		this.email = email;
@@ -40,18 +38,10 @@ public class UserTb {
 
 	@Override
 	public String toString() {
-		return "UserTb [userNo=" + userNo + ", userId=" + userId + ", userPw=" + userPw + ", email=" + email
-				+ ", userName=" + userName + ", userNick=" + userNick + ", birth=" + birth + ", address=" + address
-				+ ", addressDetail=" + addressDetail + ", phone=" + phone + ", profile=" + profile + ", joinDate="
-				+ joinDate + ", userStatus=" + userStatus + "]";
-	}
-
-	public int getUserNo() {
-		return userNo;
-	}
-
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+		return "UserTb [userId=" + userId + ", userPw=" + userPw + ", email=" + email + ", userName=" + userName
+				+ ", userNick=" + userNick + ", birth=" + birth + ", address=" + address + ", addressDetail="
+				+ addressDetail + ", phone=" + phone + ", profile=" + profile + ", joinDate=" + joinDate
+				+ ", userStatus=" + userStatus + "]";
 	}
 
 	public String getUserId() {
@@ -149,6 +139,9 @@ public class UserTb {
 	public void setUserStatus(int userStatus) {
 		this.userStatus = userStatus;
 	}
+
+	
+	
 	
 	
 	

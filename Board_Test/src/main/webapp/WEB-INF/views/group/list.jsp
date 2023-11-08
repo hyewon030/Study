@@ -57,11 +57,6 @@ font-weight: bold;
     color: white;
 }
 
-hr {
-clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 */
-
-}
-
 a {
 	color: black;
 	text-decoration: none;

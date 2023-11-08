@@ -67,10 +67,6 @@ public class Paging {
 		endNo = curPage * listCount;
 	}
 	
-	
-	
-	
-	
 	@Override
 	public String toString() {
 		return "Paging [curPage=" + curPage + ", totalCount=" + totalCount + ", listCount=" + listCount + ", totalPage="

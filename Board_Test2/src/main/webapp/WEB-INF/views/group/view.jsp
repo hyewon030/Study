@@ -87,21 +87,21 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 <div class="article">
 <div class="title">
 <div>
-<h1>${viewBoard.title }</h1>
+<h1>${board.title}</h1>
 </div><!-- 글 제목 -->
 
 	<div class="writer-info">
-<%-- 		<div style="padding-right: 20px;">닉네임 | ${viewBoard.writerNick }</div> --%>
-		<div style="padding-right: 480px;">아이디 | ${viewBoard.userId }</div>
-		<div style="padding-right: 30px;">작성일 | <fmt:formatDate value="${viewBoard.postDate }" pattern="yyyy-MM-dd HH:mm:ss"/></div>
-		<div>조회수 | ${viewBoard.hit }</div>
+		<div style="padding-right: 20px;">닉네임 | ${user.userNick}</div>
+		<div style="padding-right: 480px;">아이디 | ${board.userId}</div>
+		<div style="padding-right: 30px;">작성일 | <fmt:formatDate value="${board.postDate}" pattern="yyyy-MM-dd HH:mm:ss"/></div>
+		<div>조회수 | ${board.hit }</div>
 	</div><!-- 작성자 정보 -->
 </div><!-- 글 제목 + 유저 정보 -->
 
 <hr>
 
 <div style="padding-top: 20px;">
-${viewBoard.content }
+${board.content }
 </div><!-- .content -->
 </div><!-- .article -->
 

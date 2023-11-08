@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import web.dao.face.GroupDao;
 import web.dto.BoardTb;
 import web.dto.GroupTb;
+import web.dto.UserTb;
 import web.service.face.GroupService;
 import web.util.Paging;
 
@@ -40,6 +41,9 @@ public class GroupServiceImpl implements GroupService {
 		
 		 // 1. 게시글 목록 조회
 	    List<BoardTb> boardList = groupDao.selectBoardList(paging);
+	    
+	    List<UserTb> userNickList = groupDao.selectByUserNick(paging);
+	    
 
 	    // 2. 페이징 정보 계산
 	    Paging calculatedPaging = getPaging(paging);
@@ -49,24 +53,30 @@ public class GroupServiceImpl implements GroupService {
 
 	    // "paging" 키에 페이징 정보 추가
 	    map.put("paging", calculatedPaging);
+	    
+	    map.put("usernickList", userNickList);
 
-		
-//		map.put("", list1);
-//		map.put("", list2);
-				
-				
+//	    map.put("userNick", userNick);
+			
 		return map;
 	}
 
+
+	
 	@Override
-	public BoardTb view(BoardTb viewBoard) {
-
-		//조회수 증가
-		groupDao.updateHit(viewBoard);
+	public BoardTb view(BoardTb board) {
 		
-		return groupDao.selectByBoardNo(viewBoard);
-
+		//조회수 증가
+		groupDao.updateHit(board);
+	
+		return groupDao.selectByBoardNo(board);
 	}
 
+
+
+	
+
+
+	
 
 }

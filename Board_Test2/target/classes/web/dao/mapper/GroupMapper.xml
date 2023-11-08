@@ -5,39 +5,68 @@
 
 <mapper namespace="web.dao.face.GroupDao">
 	
-	<sql id="selectGroup">
-        SELECT 
-            board_no,
-            title,
-            location,
-            post_date,
-            hit,
-            content,
-            delete_status,
-            user_id,
-            board_cate,
-            (SELECT recruit_status
-             FROM grouptb g
-             WHERE g.board_no = b.board_no)
-        FROM boardtb b
+	<!-- 사용하는 테이블 정리 -->
+	
+	<sql id="selectBoard">
+		SELECT 
+		board_no, title, location
+		, post_date, hit, content
+		, delete_status, user_id, board_cate, (SELECT user_nick FROM userTB WHERE user_id=boardtb.user_id)
+		FROM boardtb
+		WHERE board_cate = 4
 	</sql>
 	
-    <select id="selectCntAll" resultType="int" parameterType="web.util.Paging">
+	<sql id="selectGroup">
+		SELECT
+			board_no, recruit_status
+		FROM grouptb
+	</sql>
+	
+	<sql id="selectRecom">
+		SELECT
+			userId, recoNo, boardCate
+		FROM recomtb
+	</sql>
+	
+	<sql id="selectUser">
+		SELECT
+			USER_ID
+				user_pw, email, user_name
+				,user_nick, birth, address
+				,address_detail, phone, profile
+				,join_date, user_status
+		FROM usertb
+	</sql>
+	
+	
+	<!-- 1. 게시판 목록 조회 -->
+	
+    <select id="selectCntAll" resultType="int" parameterType="int">
     SELECT count(*) FROM (
-    <include refid="selectGroup" />
+    <include refid="selectBoard" />
     )
 	</select>
-
+		
     <select id="selectBoardList" resultType="BoardTb" parameterType="web.util.Paging" >
-        SELECT * FROM (
-        SELECT rownum rnum, B.* FROM (
-        <include refid="selectGroup" />
-        ORDER BY board_no DESC
-        ) B
-    	) WHERE rnum BETWEEN #{startNo} AND #{endNo}
+		SELECT * FROM (
+		  SELECT 
+		    ROWNUM AS rnum,
+		    user_nick
+		  FROM (
+		    SELECT 
+		      (SELECT user_nick FROM userTB WHERE user_id = boardTB.user_id) AS user_nick
+		    FROM 
+		      boardTB
+		    WHERE 
+		      board_cate = 4
+		    ORDER BY 
+		      board_no DESC
+		  )
+		) WHERE rnum BETWEEN #{startNo} AND #{endNo}
     </select>
 
-	<!-- 게시판 상세 조회 -->
+
+	<!-- 2. 게시판 상세 조회 -->
 
 	<update id="updateHit" parameterType="BoardTb">
 		UPDATE boardtb
@@ -50,11 +79,31 @@
 	</update>
 	
 	<select id="selectByBoardNo" resultType="BoardTb" parameterType="BoardTb">
-		<include refid="selectGroup" />
+		<include refid="selectBoard" />
 		<where>
 			AND board_no = #{boardNo}
 		</where>
 	</select>
+	
+	<!-- 유저 정보 중 유저 닉네임 가져오기 -->
+	<select id="selectByUserNick" resultType="UserTb" parameterType="web.util.Paging" >
+		SELECT * FROM (
+		  SELECT 
+		    ROWNUM AS rnum,
+		    user_nick
+		  FROM (
+		    SELECT 
+		      (SELECT user_nick FROM userTB WHERE user_id = boardTB.user_id) AS user_nick
+		    FROM 
+		      boardTB
+		    WHERE 
+		      board_cate = 4
+		    ORDER BY 
+		      board_no DESC
+		  )
+		) WHERE rnum BETWEEN #{startNo} AND #{endNo}
+    </select>
+	
 
 
 
