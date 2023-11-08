@@ -10,7 +10,7 @@
 		SELECT
 			board_no, title, content, writer_id
 			, writer_nick, hit, write_date
-		FROM board
+		FROM boardtb
 	</sql>
 
 	<select id="selectAll" resultType="Board" parameterType="web.util.Paging">
@@ -29,7 +29,7 @@
 	</select>
 	
 	<update id="updateHit" parameterType="Board">
-		UPDATE board
+		UPDATE boardtb
 		<set>
 			hit = hit + 1,
 		</set>

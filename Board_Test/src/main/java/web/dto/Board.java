@@ -4,33 +4,39 @@ import java.util.Date;
 
 public class Board {
 	
-	public int boardNo;
-	public String title;
-	public String writerId;
-	public String writerNick;
-	public int hit;
-	public Date writeDate;
-	public String content;
+	private int boardNo;
+	private String title;
+	private int location;
+	private Date postDate;
+	private int hit;
+	private String content;
+	private int deleteStatus;
+	private String userId;
+	private int boardCate;
 	
-	//생성자
-	public Board() {}
+	public Board() {
+		// TODO Auto-generated constructor stub
+	}
 
-	public Board(int boardNo, String title, String writerId, String writerNick, int hit, Date writeDate,
-			String content) {
+	public Board(int boardNo, String title, int location, Date postDate, int hit, String content, int deleteStatus,
+			String userId, int boardCate) {
 		super();
 		this.boardNo = boardNo;
 		this.title = title;
-		this.writerId = writerId;
-		this.writerNick = writerNick;
+		this.location = location;
+		this.postDate = postDate;
 		this.hit = hit;
-		this.writeDate = writeDate;
 		this.content = content;
+		this.deleteStatus = deleteStatus;
+		this.userId = userId;
+		this.boardCate = boardCate;
 	}
 
 	@Override
 	public String toString() {
-		return "Board [boardNo=" + boardNo + ", title=" + title + ", writerId=" + writerId + ", writerNick="
-				+ writerNick + ", hit=" + hit + ", writeDate=" + writeDate + ", content=" + content + "]";
+		return "Board [boardNo=" + boardNo + ", title=" + title + ", location=" + location + ", postDate=" + postDate
+				+ ", hit=" + hit + ", content=" + content + ", deleteStatus=" + deleteStatus + ", userId=" + userId
+				+ ", boardCate=" + boardCate + "]";
 	}
 
 	public int getBoardNo() {
@@ -49,20 +55,20 @@ public class Board {
 		this.title = title;
 	}
 
-	public String getWriterId() {
-		return writerId;
+	public int getLocation() {
+		return location;
 	}
 
-	public void setWriterId(String writerId) {
-		this.writerId = writerId;
+	public void setLocation(int location) {
+		this.location = location;
 	}
 
-	public String getWriterNick() {
-		return writerNick;
+	public Date getPostDate() {
+		return postDate;
 	}
 
-	public void setWriterNick(String writerNick) {
-		this.writerNick = writerNick;
+	public void setPostDate(Date postDate) {
+		this.postDate = postDate;
 	}
 
 	public int getHit() {
@@ -73,14 +79,6 @@ public class Board {
 		this.hit = hit;
 	}
 
-	public Date getWriteDate() {
-		return writeDate;
-	}
-
-	public void setWriteDate(Date writeDate) {
-		this.writeDate = writeDate;
-	}
-
 	public String getContent() {
 		return content;
 	}
@@ -88,6 +86,31 @@ public class Board {
 	public void setContent(String content) {
 		this.content = content;
 	}
+
+	public int getDeleteStatus() {
+		return deleteStatus;
+	}
+
+	public void setDeleteStatus(int deleteStatus) {
+		this.deleteStatus = deleteStatus;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public int getBoardCate() {
+		return boardCate;
+	}
+
+	public void setBoardCate(int boardCate) {
+		this.boardCate = boardCate;
+	}
+	
 	
 	
 	

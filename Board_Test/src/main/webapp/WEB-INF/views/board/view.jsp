@@ -34,7 +34,7 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 }
 
 .btn {
-    background-color: #2ECC71;
+     background-color: #2ECC71; 
     color: white;
     border: none;
     cursor: pointer;
@@ -93,7 +93,7 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 	<div class="writer-info">
 		<div style="padding-right: 20px;">닉네임 | ${viewBoard.writerNick }</div>
 		<div style="padding-right: 480px;">아이디 | ${viewBoard.writerId }</div>
-		<div style="padding-right: 30px;">작성일 | ${viewBoard.writeDate }</div>
+		<div style="padding-right: 30px;">작성일 | <fmt:formatDate value="${board.writeDate }"/></div>
 		<div>조회수 | ${viewBoard.hit }</div>
 	</div><!-- 작성자 정보 -->
 </div><!-- 글 제목 + 유저 정보 -->

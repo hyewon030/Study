@@ -1,0 +1,12 @@
+campingeveryshare_high = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=gdfd3151fe0ae94_campingeveryshare_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+campingeveryshare_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=gdfd3151fe0ae94_campingeveryshare_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+campingeveryshare_medium = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=gdfd3151fe0ae94_campingeveryshare_medium.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+campingeveryshare_tp = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=gdfd3151fe0ae94_campingeveryshare_tp.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+campingeveryshare_tpurgent = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=gdfd3151fe0ae94_campingeveryshare_tpurgent.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+
+

@@ -16,6 +16,26 @@
 
 	<dependencies>	
 
+		<!-- Oracle -->
+		<dependency>
+		      <groupId>com.oracle.database.security</groupId>
+		      <artifactId>oraclepki</artifactId>
+		      <version>21.5.0.0</version>
+		   </dependency>  
+		
+		<dependency>
+		      <groupId>com.oracle.database.security</groupId>
+		      <artifactId>osdt_cert</artifactId>
+		      <version>21.5.0.0</version>
+		  </dependency>
+		
+		  <dependency>
+		      <groupId>com.oracle.database.security</groupId>
+		      <artifactId>osdt_core</artifactId>
+		      <version>21.5.0.0</version>
+		  </dependency>
+
+
 		<!-- MyBatis -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
