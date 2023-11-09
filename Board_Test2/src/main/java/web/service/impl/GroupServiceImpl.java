@@ -41,25 +41,34 @@ public class GroupServiceImpl implements GroupService {
 		
 		 // 1. 게시글 목록 조회
 		mapList = groupDao.selectBoardList(paging);
-	    
-	    
+	      
 	    // 2. 페이징 정보 계산
 	    Paging calculatedPaging = getPaging(paging);
-
 
 		return mapList;
 	}
 
+//	@Override
+//	public Board viewHit(Board viewBoard) {
+//		return groupDao.updateHit(viewBoard);
+//	}
+
+	@Override
+	public List<Map<String, Object>> view() {
+		
+		List<Map<String, Object>> mapView = new ArrayList<Map<String,Object>>();
+		
+		 // 1. 게시글 목록 조회
+		mapView = groupDao.selectBoardView();
+	      
+		return mapView;
+	}	
+
 
 	
-	@Override
-	public Board view(Board board) {
-		
-		//조회수 증가
-		groupDao.updateHit(board);
-	
-		return groupDao.selectByBoardNo(board);
-	}
+
+
+
 
 
 

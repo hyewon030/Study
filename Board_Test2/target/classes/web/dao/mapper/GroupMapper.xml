@@ -85,22 +85,49 @@
 		
 
 	<!-- 2. 게시판 상세 조회 -->
-
-	<update id="updateHit" parameterType="Board">
-		UPDATE boardtb
-		<set>
-			hit = hit + 1,
-		</set>
-		<where>
-			AND board_no = #{boardNo}
-		</where>
-	</update>
+	<!-- 2-1. 조회수 -->
+<!-- 	<update id="updateHit" parameterType="Board"> -->
+<!-- 		UPDATE boardtb -->
+<!-- 		<set> -->
+<!-- 			hit = hit + 1, -->
+<!-- 		</set> -->
+<!-- 		<where> -->
+<!-- 			AND board_no = #{boardNo} -->
+<!-- 		</where> -->
+<!-- 	</update> -->
 	
-	<select id="selectByBoardNo" resultType="Board" parameterType="Board">
-		SELECT   board_no, title, location, post_date, hit, content, delete_status, user_id, board_cate, (SELECT user_nick FROM userTB WHERE user_id=boardtb.user_id)   
-		FROM boardtb   
-		WHERE board_cate = 4 AND board_no = #{boardNo}
-	</select>
+	<!-- /group/view 게시글 상세 조회 -->
+	<!-- 2-2. 게시글 및 유저 정보 가져오기(댓글 x) -->
+	<select id="selectBoardView" resultType="Map" parameterType="Map">
+    SELECT
+        ROWNUM AS rnum,
+        b.board_no,
+        b.title,
+        b.location,
+        b.post_date,
+        b.hit,
+        b.content,
+        b.delete_status,
+        b.user_id,
+        b.board_cate,
+        (
+            SELECT user_nick
+            FROM usertb
+            WHERE user_id = b.user_id
+        ) AS user_nick,
+        (
+            SELECT profile
+            FROM usertb
+            WHERE user_id = b.user_id
+        ) AS profile
+    FROM
+        boardtb b
+    WHERE
+        b.board_cate = 4
+    ORDER BY
+        b.board_no DESC
+</select>
+
 
 
 

@@ -36,57 +36,42 @@ public class GroupController {
 		//페이징 계산
 		Paging paging = groupService.getPaging( param );
 		logger.info("{}", paging);
-		
-		//게시글 목록 조회
 		logger.info("{}",paging.getStartNo());
 		logger.info("===================");
+		model.addAttribute("paging", paging);
 		
+		//게시글 목록 가져오기
 		List<Map<String,Object>> map = groupService.list( paging );
-		
 		logger.info(map.toString());
 		model.addAttribute("board", map);
-		
-		//UserNick 가져오기
-		//1. User 객체 생성, UserNick 가져오는 코드
-//		User user = new User();
-//		user = groupService.getUserNick(user);
-		
-		model.addAttribute("paging", paging);
 
-		
-		
-		
-		logger.info("================");
-
-
+		logger.info("=====/group/list [FINISH]=====");
 
 		//------------------------------------------------------------------
-		
-		
-		}
 
-	@GetMapping("/view")
-    public String groupView(Board board, User user, Model model, HttpSession httpSession) {
-		
-		if( board.getBoardNo() < 1 ) {
-			return "redirect:./list";
 		}
-		
-		//1-1. 상세보기 게시글 조회
-		board = groupService.view(board);
-		
-		//1-2. 게시판 모델값 전달
-		model.addAttribute("board", board);
-
-		//2-1. 유저 정보 가져오기
-		user.setUserId(board.getUserId());
-//	    user = groupService.getNick(user);
-		
-		//2-2. 유저 모델값 전달
-		 model.addAttribute("user", user);
-		 
 	
+	@GetMapping("/view")
+    public String groupView( Model model, HttpSession httpSession ) {
+		
+		logger.info("=====/group/view [START]=====");
+		
+		//나중에 도전
+//		if( getBoardNo() < 1 ) {
+//			return "redirect:./list";
+//		}
+		
+		//2-1. 상세보기 게시글 조회, 모델값 전달
+//		groupService.viewHit();
+		
+		//2-2. 맵을 사용해서 유저 정보 가져오기
+		List<Map<String,Object>> map = groupService.view();
+		model.addAttribute("boardView", map);
+		
+        logger.info("=====/group/view [FINISH]=====");
+        
         return "group/view"; 
+       
     }
 	
 //	public void boardWrite(){}

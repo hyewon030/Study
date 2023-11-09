@@ -22,15 +22,19 @@ public interface GroupService {
 	 * @return
 	 */
 	public List<Map<String, Object>> list(Paging paging);
-	
+
 	/**
-	 * 여기부터 게시글 상세 조회
-	 * @param board
+	 * 게시글 조회수
+	 * @param viewBoard
 	 * @return
 	 */
-	public Board view(Board board);
+//	public Board viewHit(Board viewBoard);
 
-
+	/**
+	 * 게시글 상세 조회
+	 * @return
+	 */
+	public List<Map<String, Object>> view();
 
 
 	

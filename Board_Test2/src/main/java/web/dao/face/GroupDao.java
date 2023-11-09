@@ -28,12 +28,24 @@ public interface GroupDao {
 	public List<User> selectUserNick(Paging paging);
 
 	/**
-	 * 게시글 조회수
+	 * 게시글 조회수 업데이트
 	 * @param board
+	 * @return 
 	 */
-	public void updateHit(Board board);
+//	public Board updateHit(Board board);
 
-	public Board selectByBoardNo(Board board);
+	/**
+	 * 게시글 상세 조회
+	 * @param viewBoard
+	 * @return
+	 */
+	public List<Map<String, Object>> selectBoardView();
+	
+	/**
+	 * 유저 닉네임 가져오기
+	 */
+	public List<User> selectUserInfo();
+
 
 
 }

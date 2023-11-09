@@ -3,8 +3,6 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
 <style type="text/css">
@@ -86,22 +84,25 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 
 <div class="article">
 <div class="title">
+
 <div>
-<h1>${board.title}</h1>
+<%-- <h1>${boardView.TITLE}</h1> --%>
 </div><!-- 글 제목 -->
 
-	<div class="writer-info" style="color: #A4A4A4">
-		<div style="padding-right: 20px;">닉네임 | ${user.userNick}</div>
-		<div style="padding-right: 480px;">아이디 | ${board.userId}</div>
-		<div style="padding-right: 30px;">작성일 | <fmt:formatDate value="${board.postDate}" pattern="yyyy-MM-dd HH:mm:ss"/></div>
-		<div>조회수 | ${board.hit }</div>
-	</div><!-- 작성자 정보 -->
+<!-- 		<div class="writer-info" style="color: #A4A4A4"> -->
+<%-- 		<div style="padding-right: 20px;">닉네임 | ${boardView.user_nick}</div> --%>
+<%-- 		<div style="padding-right: 480px;">아이디 | ${boardView.user_id}</div> --%>
+<%-- 		<div style="padding-right: 30px;">작성일 | ${boardView.post_Date}</div> --%>
+<%-- 		<div>조회수 | ${view.hit }</div> --%>
+<!-- 		</div>작성자 정보 -->
+					
 </div><!-- 글 제목 + 유저 정보 -->
 
 <hr>
 
 <div style="padding-top: 20px;">
-${board.content }
+
+<%-- ${view.content } --%>
 </div><!-- .content -->
 </div><!-- .article -->
 
