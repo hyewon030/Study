@@ -3,9 +3,9 @@ package web.dao.face;
 import java.util.List;
 import java.util.Map;
 
-import web.dto.BoardTb;
+import web.dto.Board;
 import web.dto.GroupTb;
-import web.dto.UserTb;
+import web.dto.User;
 import web.util.Paging;
 
 public interface GroupDao {
@@ -13,14 +13,27 @@ public interface GroupDao {
 	//게시글 목록 조회
 	public int selectCntAll(Paging param);
 
-	public List<BoardTb> selectBoardList(Paging paging);
+	/**
+	 * 게시글 정보 조회
+	 * @param paging
+	 * @return
+	 */
+	public List<Board> selectBoardList(Paging paging);
 
-	//여기부터 게시글 상세 조회
-	public void updateHit(BoardTb board);
+	/**
+	 * 유저 정보 조회
+	 * @param paging
+	 * @return
+	 */
+	public List<User> selectUserNick(Paging paging);
 
-	public BoardTb selectByBoardNo(BoardTb board);
+	/**
+	 * 게시글 조회수
+	 * @param board
+	 */
+	public void updateHit(Board board);
 
-	public List<UserTb> selectByUserNick(Paging paging);
+	public Board selectByBoardNo(Board board);
 
 
 }

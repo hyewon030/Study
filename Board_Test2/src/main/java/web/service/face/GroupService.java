@@ -3,8 +3,8 @@ package web.service.face;
 import java.util.List;
 import java.util.Map;
 
-import web.dto.BoardTb;
-import web.dto.UserTb;
+import web.dto.Board;
+import web.dto.User;
 import web.util.Paging;
 
 public interface GroupService {
@@ -16,6 +16,11 @@ public interface GroupService {
 	 */
 	public Paging getPaging(Paging param);
 
+	/**
+	 * 
+	 * @param paging
+	 * @return
+	 */
 	public Map<String, Object> list(Paging paging);
 	
 	/**
@@ -23,14 +28,7 @@ public interface GroupService {
 	 * @param board
 	 * @return
 	 */
-	public BoardTb view(BoardTb board);
-
-	/**
-	 * 유저 닉네임 가져오기
-	 * @param user
-	 * @return
-	 */
-
+	public Board view(Board board);
 
 
 

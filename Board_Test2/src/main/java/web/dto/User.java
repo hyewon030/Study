@@ -2,7 +2,7 @@ package web.dto;
 
 import java.util.Date;
 
-public class UserTb {
+public class User {
 
 	private String userId;
 	private String userPw;
@@ -17,9 +17,9 @@ public class UserTb {
 	private Date joinDate;
 	private int userStatus;
 	
-	public UserTb() {}
+	public User() {}
 
-	public UserTb(String userId, String userPw, String email, String userName, String userNick, Date birth,
+	public User(String userId, String userPw, String email, String userName, String userNick, Date birth,
 			String address, String addressDetail, int phone, int profile, Date joinDate, int userStatus) {
 		super();
 		this.userId = userId;

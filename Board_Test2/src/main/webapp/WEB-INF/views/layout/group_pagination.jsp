@@ -22,12 +22,19 @@
     color: #fff;
 }
 
+.current-page a {
+	color: white; /* 폰트 색상 변경 */
+}
+
 .pagination a.active { 
-   background-color: #4CAF50; 
-   color: white; 
+background-color: #4CAF50; 
+color: white; 
  } 
 
-/*  .pagination a:hover:not(.active) {background-color: #ddd;}  */
+/* 호버 - 밑줄 삭제 */
+.pagination a:hover {
+	border: none;
+}
 
 </style>
 

@@ -82,11 +82,15 @@ a:hover {
   -webkit-appearance: none; 
 }
 
+.container {
+	width: 1200px;
+}
+
 </style>
 
 
 
-<div class="container">
+<div class="container" >
 <h1 style="color:#2ECC71">모집게시판</h1>
 <h6 style="color: #A4A4A4">캠핑 모집 게시글을 작성하고 조회할 수 있습니다.</h6>
 
@@ -102,6 +106,10 @@ a:hover {
 
 <button class="btn" style="margin-bottom: 10px;">글쓰기</button>
 <hr>
+
+<h1>${userNick}</h1>
+<hr>
+
 
 <table>
 	<thead>
@@ -124,19 +132,26 @@ a:hover {
 	<col style="width: 10%;">
 </colgroup>	
 
+
+
 	<tbody>
-	<c:forEach var="board" items="${list }">
-	<tr>
-		<td>${board.boardNo }</td>
-		<td><a href="./view?boardNo=${board.boardNo }">${board.title }</a></td>
-		<td>${nick.USER_NICK}</td>
-		<td> <fmt:formatDate value="${board.postDate }" pattern="yyyy-MM-dd HH:mm:ss"/>
-		</td>
-		<td>${board.hit }</td>
-		<td>댓글수</td>
-		<td></td>
-	</tr>
-	</c:forEach>
+    <c:forEach var="board" items="${list}">
+        <tr>
+            <td>${board.boardNo}</td>
+            <td><a href="./view?boardNo=${board.boardNo}">${board.title}</a></td>
+    </c:forEach>
+    
+    <c:forEach var="user" items="${userNickList}">
+            <td>${user.userNick }
+    </c:forEach>
+    
+    <c:forEach var="board" items="${list}">
+            </td>
+            <td><fmt:formatDate value="${board.postDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+            <td>${board.hit}</td>
+            <td>댓글test</td>
+    </c:forEach>
+        </tr>
 	</tbody>
 </table>
 <div ustify-content: space-between;">

@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import web.dao.face.GroupDao;
-import web.dto.BoardTb;
-import web.dto.UserTb;
+import web.dto.Board;
+import web.dto.User;
 import web.service.face.GroupService;
 import web.util.Paging;
 
@@ -40,18 +40,37 @@ public class GroupController {
 		//게시글 목록 조회
 		logger.info("{}",paging.getStartNo());
 		logger.info("====================");
+		
 		Map<String,Object> map = groupService.list( paging );
 		
+		//UserNick 가져오기
+		//1. User 객체 생성, UserNick 가져오는 코드
+//		User user = new User();
+//		user = groupService.getUserNick(user);
+		
 		model.addAttribute("paging", paging);
-		
 		model.addAttribute("list", map.get("list"));
+		model.addAttribute("userNick", map.get("userNickList"));
 		
-		model.addAttribute("userNick", map.get("usernickList"));
+		
+		
+		logger.info("================");
+		
+//		logger.info("BoardList" + map.get(paging) );
+		logger.info("Paging: " + paging );
+		logger.info("BoardList: " + map.get("list"));
+		logger.info("UserNickList: " + map.get("userNick"));
+
+		//------------------------------------------------------------------
+		
+		logger.info("UserNick: " + map.get("userNick"));
+	
+		
 		
 		}
 
 	@GetMapping("/view")
-    public String groupView(BoardTb board, UserTb user, Model model, HttpSession httpSession) {
+    public String groupView(Board board, User user, Model model, HttpSession httpSession) {
 		
 		if( board.getBoardNo() < 1 ) {
 			return "redirect:./list";
@@ -69,6 +88,7 @@ public class GroupController {
 		
 		//2-2. 유저 모델값 전달
 		 model.addAttribute("user", user);
+		 
 	
         return "group/view"; 
     }

@@ -90,7 +90,7 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 <h1>${board.title}</h1>
 </div><!-- 글 제목 -->
 
-	<div class="writer-info">
+	<div class="writer-info" style="color: #A4A4A4">
 		<div style="padding-right: 20px;">닉네임 | ${user.userNick}</div>
 		<div style="padding-right: 480px;">아이디 | ${board.userId}</div>
 		<div style="padding-right: 30px;">작성일 | <fmt:formatDate value="${board.postDate}" pattern="yyyy-MM-dd HH:mm:ss"/></div>
