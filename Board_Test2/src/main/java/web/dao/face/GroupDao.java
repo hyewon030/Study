@@ -18,7 +18,7 @@ public interface GroupDao {
 	 * @param paging
 	 * @return
 	 */
-	public List<Board> selectBoardList(Paging paging);
+	public List<Map<String, Object>> selectBoardList(Paging paging);
 
 	/**
 	 * 유저 정보 조회

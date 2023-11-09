@@ -21,7 +21,7 @@ public interface GroupService {
 	 * @param paging
 	 * @return
 	 */
-	public Map<String, Object> list(Paging paging);
+	public List<Map<String, Object>> list(Paging paging);
 	
 	/**
 	 * 여기부터 게시글 상세 조회

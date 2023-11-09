@@ -35,28 +35,19 @@ public class GroupServiceImpl implements GroupService {
 	}
 
 	@Override
-	public Map<String, Object> list(Paging paging) {
+	public List<Map<String, Object>> list(Paging paging) {
 
-		Map<String, Object> map = new HashMap<String, Object>();
+		List<Map<String, Object>> mapList = new ArrayList<Map<String,Object>>();
 		
 		 // 1. 게시글 목록 조회
-	    List<Board> boardList = groupDao.selectBoardList(paging);
+		mapList = groupDao.selectBoardList(paging);
 	    
-	    List<User> userNickList = groupDao.selectUserNick(paging);
 	    
 	    // 2. 페이징 정보 계산
 	    Paging calculatedPaging = getPaging(paging);
 
-	    // 3. "list" 키에 게시글 목록 추가
-	    map.put("list", boardList);
 
-	    // "paging" 키에 페이징 정보 추가
-	    map.put("paging", calculatedPaging);
-	    
-	    // "userNick"키usernick 정보 추가
-	    map.put("userNick", userNickList);
-			
-		return map;
+		return mapList;
 	}
 
 

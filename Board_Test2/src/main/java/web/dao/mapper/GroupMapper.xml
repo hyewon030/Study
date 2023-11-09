@@ -45,25 +45,26 @@
 	</select>
 
 		<!-- boardtb에서만 가져오는 거 -->
-		<select id="selectBoardList" resultType="Board" parameterType="web.util.Paging">
-		  SELECT * FROM (
-		    SELECT
-		      ROWNUM AS rnum,
-		      board_no,
-		      title,
-		      location,
-		      post_date,
-		      hit,
-		      content,
-		      delete_status,
-		      user_id,
-		      board_cate
-		    FROM boardTB 
-		    WHERE board_cate = 4
-		    ORDER BY board_no DESC
-		  ) 
-		  WHERE rnum BETWEEN #{startNo} AND #{endNo}
-		</select>
+	<select id="selectBoardList" parameterType="web.util.Paging" resultType="Map">
+	  SELECT * FROM (
+	    SELECT
+	      ROWNUM AS rnum,
+	      board_no,
+	      title,
+	      location,
+	      post_date,
+	      hit,
+	      content,
+	      delete_status,
+	      user_id,
+	      board_cate,
+	      (SELECT user_nick FROM userTB WHERE user_id = b.user_id) AS user_nick
+	    FROM boardTB b
+	    WHERE board_cate = 4
+	    ORDER BY board_no DESC
+	  ) subquery
+	  WHERE rnum BETWEEN #{startNo} AND #{endNo}
+	</select>
 		
 		<!-- user + board -->
 		<select id="selectUserNick" resultType="Map" parameterType="web.util.Paging">

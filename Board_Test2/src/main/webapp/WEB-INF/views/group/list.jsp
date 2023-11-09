@@ -107,9 +107,6 @@ a:hover {
 <button class="btn" style="margin-bottom: 10px;">글쓰기</button>
 <hr>
 
-<h1>${userNick}</h1>
-<hr>
-
 
 <table>
 	<thead>
@@ -133,25 +130,18 @@ a:hover {
 </colgroup>	
 
 
-
 	<tbody>
-    <c:forEach var="board" items="${list}">
+    <c:forEach var="board" items="${board}">
         <tr>
-            <td>${board.boardNo}</td>
-            <td><a href="./view?boardNo=${board.boardNo}">${board.title}</a></td>
-    </c:forEach>
-    
-    <c:forEach var="user" items="${userNickList}">
-            <td>${user.userNick }
-    </c:forEach>
-    
-    <c:forEach var="board" items="${list}">
+            <td>${board.BOARD_NO}</td>
+            <td><a href="./view?boardNo=${board.BOARD_NO}">${board.TITLE}</a></td>
+            <td>${board.USER_NICK }
             </td>
-            <td><fmt:formatDate value="${board.postDate}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-            <td>${board.hit}</td>
+            <td><fmt:formatDate value="${board.POST_DATE}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+            <td>${board.HIT}</td>
             <td>댓글test</td>
-    </c:forEach>
         </tr>
+    </c:forEach>
 	</tbody>
 </table>
 <div ustify-content: space-between;">

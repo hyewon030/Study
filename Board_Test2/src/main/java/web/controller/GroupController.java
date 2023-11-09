@@ -39,9 +39,12 @@ public class GroupController {
 		
 		//게시글 목록 조회
 		logger.info("{}",paging.getStartNo());
-		logger.info("====================");
+		logger.info("===================");
 		
-		Map<String,Object> map = groupService.list( paging );
+		List<Map<String,Object>> map = groupService.list( paging );
+		
+		logger.info(map.toString());
+		model.addAttribute("board", map);
 		
 		//UserNick 가져오기
 		//1. User 객체 생성, UserNick 가져오는 코드
@@ -49,22 +52,15 @@ public class GroupController {
 //		user = groupService.getUserNick(user);
 		
 		model.addAttribute("paging", paging);
-		model.addAttribute("list", map.get("list"));
-		model.addAttribute("userNick", map.get("userNickList"));
+
 		
 		
 		
 		logger.info("================");
-		
-//		logger.info("BoardList" + map.get(paging) );
-		logger.info("Paging: " + paging );
-		logger.info("BoardList: " + map.get("list"));
-		logger.info("UserNickList: " + map.get("userNick"));
+
+
 
 		//------------------------------------------------------------------
-		
-		logger.info("UserNick: " + map.get("userNick"));
-	
 		
 		
 		}
@@ -93,10 +89,6 @@ public class GroupController {
         return "group/view"; 
     }
 	
-	
-	
-	
-
 //	public void boardWrite(){}
 //	public String boardWriteProc(Board, BoardFile, MultipartFile, HttpSession){}
 //
