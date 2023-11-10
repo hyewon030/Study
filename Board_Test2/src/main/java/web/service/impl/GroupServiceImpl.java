@@ -54,14 +54,15 @@ public class GroupServiceImpl implements GroupService {
 //	}
 
 	@Override
-	public List<Map<String, Object>> view() {
+	public Map<String, Object> view(Board board) {
 		
-		List<Map<String, Object>> mapView = new ArrayList<Map<String,Object>>();
+		Map<String, Object> mapView = new HashMap<>();
 		
 		 // 1. 게시글 목록 조회
-		mapView = groupDao.selectBoardView();
-	      
+		mapView = groupDao.selectBoardView(board);
+		
 		return mapView;
+	      
 	}	
 
 

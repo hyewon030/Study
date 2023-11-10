@@ -39,8 +39,7 @@ public interface GroupDao {
 	 * @param viewBoard
 	 * @return
 	 */
-	public List<Map<String, Object>> selectBoardView();
-	
+	public Map<String, Object> selectBoardView(Board board);
 	/**
 	 * 유저 닉네임 가져오기
 	 */

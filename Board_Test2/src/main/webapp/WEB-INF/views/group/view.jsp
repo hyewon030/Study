@@ -85,15 +85,27 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 <div class="article">
 <div class="title">
 
+<%-- <c:if var="user" test="${board_no eq USER_NICK}"> --%>
+<%-- ${writerView} --%>
+<%-- </c:if> --%>
+
+
 <div>
-<%-- <h1>${boardView.TITLE}</h1> --%>
+<h1>${boardView.TITLE}</h1>
 </div><!-- 글 제목 -->
 
 <!-- 		<div class="writer-info" style="color: #A4A4A4"> -->
-<%-- 		<div style="padding-right: 20px;">닉네임 | ${boardView.user_nick}</div> --%>
-<%-- 		<div style="padding-right: 480px;">아이디 | ${boardView.user_id}</div> --%>
-<%-- 		<div style="padding-right: 30px;">작성일 | ${boardView.post_Date}</div> --%>
-<%-- 		<div>조회수 | ${view.hit }</div> --%>
+		<div style="padding-right: 20px;">프로필 사진 | ${writerView.PROFILE}</div>
+		<div style="padding-right: 20px;">닉네임 | ${writerView.USER_NICK}</div>
+		<div style="padding-right: 480px;">아이디 | ${writerView.USER_ID}</div>
+		<div style="padding-right: 30px;">작성일 | ${writerView.POST_DATE}</div>
+		
+		<hr>
+		<div>모집 지역 | ${writerView.LOCATION }</div>
+		<div>조회수| ${writerView.HIT }</div>
+		<div>모집 상태 | ${writerView.RECRUIT_STATUS }</div>
+		
+		
 <!-- 		</div>작성자 정보 -->
 					
 </div><!-- 글 제목 + 유저 정보 -->
@@ -102,7 +114,7 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 
 <div style="padding-top: 20px;">
 
-<%-- ${view.content } --%>
+${boardview.CONTENT }
 </div><!-- .content -->
 </div><!-- .article -->
 

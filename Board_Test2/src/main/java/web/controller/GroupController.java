@@ -52,7 +52,7 @@ public class GroupController {
 		}
 	
 	@GetMapping("/view")
-    public String groupView( Model model, HttpSession httpSession ) {
+    public String groupView( Board board, Model model, HttpSession httpSession ) {
 		
 		logger.info("=====/group/view [START]=====");
 		
@@ -65,8 +65,8 @@ public class GroupController {
 //		groupService.viewHit();
 		
 		//2-2. 맵을 사용해서 유저 정보 가져오기
-		List<Map<String,Object>> map = groupService.view();
-		model.addAttribute("boardView", map);
+		Map<String,Object> map = groupService.view( board );
+		model.addAttribute("writerView", map);
 		
         logger.info("=====/group/view [FINISH]=====");
         

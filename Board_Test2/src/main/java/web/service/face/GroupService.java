@@ -32,9 +32,10 @@ public interface GroupService {
 
 	/**
 	 * 게시글 상세 조회
+	 * @param board 
 	 * @return
 	 */
-	public List<Map<String, Object>> view();
+	public Map<String, Object> view(Board board);
 
 
 	
