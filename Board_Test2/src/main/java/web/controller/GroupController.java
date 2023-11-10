@@ -56,13 +56,13 @@ public class GroupController {
 		
 		logger.info("=====/group/view [START]=====");
 		
-		//나중에 도전
-//		if( getBoardNo() < 1 ) {
-//			return "redirect:./list";
-//		}
+	
+		if( board.getBoardNo() < 1 ) {
+			return "redirect:./list";
+		}
 		
 		//2-1. 상세보기 게시글 조회, 모델값 전달
-//		groupService.viewHit();
+		groupService.viewHit( board );
 		
 		//2-2. 맵을 사용해서 유저 정보 가져오기
 		Map<String,Object> map = groupService.view( board );
@@ -74,7 +74,10 @@ public class GroupController {
        
     }
 	
-//	public void boardWrite(){}
+	@GetMapping("/write")
+	public void boardWrite(){
+		
+	}
 //	public String boardWriteProc(Board, BoardFile, MultipartFile, HttpSession){}
 //
 //	public void boardUpdate(Model, Board, BoardFile){}

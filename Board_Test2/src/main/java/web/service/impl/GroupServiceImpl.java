@@ -48,10 +48,10 @@ public class GroupServiceImpl implements GroupService {
 		return mapList;
 	}
 
-//	@Override
-//	public Board viewHit(Board viewBoard) {
-//		return groupDao.updateHit(viewBoard);
-//	}
+	@Override
+	public int viewHit(Board board) {
+		return groupDao.updateHit(board);
+	}
 
 	@Override
 	public Map<String, Object> view(Board board) {

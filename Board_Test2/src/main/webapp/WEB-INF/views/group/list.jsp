@@ -3,6 +3,8 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <c:import url="/WEB-INF/views/layout/header.jsp" />
 
 <style type="text/css">
@@ -102,9 +104,9 @@ a:hover {
 </div>
 <hr>
 
-<button class="btn" style="margin-bottom: 10px;">글쓰기</button>
-<hr>
+<a href="./write"><button class="btn" style="margin-bottom: 10px;">글쓰기</button></a>
 
+<hr>
 <table>
 	<thead>
 	<tr>
@@ -133,7 +135,9 @@ a:hover {
             <td><a href="./view?boardNo=${board.BOARD_NO}">${board.TITLE}</a></td>
             <td>${board.USER_NICK }
             </td>
-            <td>${board.POST_DATE}</td>
+            <td><fmt:parseDate value="${board.POST_DATE}" var="date" pattern="yyyy-MM-dd HH:mm"/>
+            <fmt:formatDate value="${date }" pattern="yyyy-MM-dd HH:mm"/>
+            </td>
             <td>${board.HIT}</td>
             <td>댓글test</td>
         </tr>

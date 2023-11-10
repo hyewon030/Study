@@ -7,12 +7,12 @@ public class Board {
    private int boardNo;
    private String title;
    private int location;
-   private Date postDate;
    private int hit;
    private String content;
    private int deleteStatus;
    private String userId;
    private int boardCate;
+   private Date postDate;
    
    public Board() {}
 

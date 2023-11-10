@@ -32,7 +32,7 @@ public interface GroupDao {
 	 * @param board
 	 * @return 
 	 */
-//	public Board updateHit(Board board);
+	public int updateHit(Board board);
 
 	/**
 	 * 게시글 상세 조회

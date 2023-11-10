@@ -28,7 +28,7 @@ public interface GroupService {
 	 * @param viewBoard
 	 * @return
 	 */
-//	public Board viewHit(Board viewBoard);
+	public int viewHit(Board board);
 
 	/**
 	 * 게시글 상세 조회
@@ -36,6 +36,7 @@ public interface GroupService {
 	 * @return
 	 */
 	public Map<String, Object> view(Board board);
+
 
 
 	
