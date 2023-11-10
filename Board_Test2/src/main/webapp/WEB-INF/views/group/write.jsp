@@ -65,46 +65,35 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 	box-shadow: 0 0 0 1px #C7C8C9;	
 }
 
-.title {
-	display: flex;
-	flex-direction: column;
-}
-
 .writer-info {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 }
 
-
 </style>
 
 <div class="container">
 <h1 style="color:#2ECC71">게시글 상세보기</h1>
-<h6 style="color: #A4A4A4">캠핑 관련 게시글을 조회합니다.</h6>
+<h6 style="color: #A4A4A4">캠핑 관련 게시글을 작성합니다.</h6>
 <hr>
 
 <div class="article">
 <div class="title">
 
 <div>
-<h1>${boardView.TITLE}</h1>
-</div><!-- 글 제목 -->
+<h5>상태 및 위치 |</h5>
+<label class="status">모집 현황</label>
+<select class="status">
+	<option>모집 중</option>
+	<option>모집 완료</option>
+</select><br>
 
-		<div class="writer-info" style="color: #A4A4A4">
-		<div style="padding-right: 20px;">프로필 사진 | ${writerView.PROFILE}</div>
-		<div style="padding-right: 20px;">닉네임 | ${writerView.USER_NICK}</div>
-		<div style="padding-right: 480px;">아이디 | ${writerView.USER_ID}</div>
-		<div style="padding-right: 30px;">작성일 | <fmt:parseDate value="${writerView.POST_DATE}" var="date" pattern="yyyy-MM-dd HH:mm"/></div>
-		<fmt:formatDate value="${date }" pattern="yyyy-MM-dd HH:mm"/>
+</div><!-- 선택 내역 -->
 
-		<hr>
-		<div>모집 지역 | ${writerView.LOCATION }</div>
-		<div>조회수| ${writerView.HIT }</div>
-		<div>모집 상태 | ${writerView.RECRUIT_STATUS }</div>
-		
-		
-		</div><!-- 작성자 정보 -->
+<input type="text" class="title" style="width:600px;">
+
+</div><!-- 작성자 정보 -->
 					
 </div><!-- 글 제목 + 유저 정보 -->
 
@@ -118,9 +107,9 @@ ${writerView.CONTENT }
 </div><!-- .article -->
 
 <div class="buttons">
-<a href="./list"><button class="btn">목록</button></a>
-<a href="./edit"><button class="btn">수정</button></a>
-<a href="./delete"><button class="btn">삭제</button></a>
+<!-- alert [작성 중인 내용이 있습니다. 취소하시겠습니까?] -->
+<a href="./list"><button class="btn">취소</button></a>
+<a href="./view?boardNo="><button class="btn">작성</button></a>
 </div>
 
 

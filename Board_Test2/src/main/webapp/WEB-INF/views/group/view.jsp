@@ -88,7 +88,7 @@ clear: both; /* 이전 요소들과 무관하게 이어지는 요소를 지정 *
 <div class="title">
 
 <div>
-<h1>${boardView.TITLE}</h1>
+<h1>${writerView.TITLE}</h1>
 </div><!-- 글 제목 -->
 
 		<div class="writer-info" style="color: #A4A4A4">
