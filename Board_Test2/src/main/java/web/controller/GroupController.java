@@ -68,6 +68,9 @@ public class GroupController {
 		Map<String,Object> map = groupService.view( board );
 		model.addAttribute("writerView", map);
 		
+		Map<String,Object> map2 = groupService.content( board );
+		model.addAttribute("contentView", map2);
+		
         logger.info("=====/group/view [FINISH]=====");
         
         return "group/view"; 

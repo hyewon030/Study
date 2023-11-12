@@ -37,6 +37,13 @@ public interface GroupService {
 	 */
 	public Map<String, Object> view(Board board);
 
+	/**
+	 * 게시글 내용 CLOB 형식으로 전환
+	 * @param board
+	 * @return
+	 */
+	public Map<String, Object> content(Board board);
+
 
 
 	

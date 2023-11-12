@@ -1,13 +1,13 @@
 package web.dto;
 
-public class GroupTb {
+public class Group {
 
 	private int boardNo;
 	private int recruitStatus;
 	
-	public GroupTb() {}
+	public Group() {}
 
-	public GroupTb(int boardNo, int recruitStatus) {
+	public Group(int boardNo, int recruitStatus) {
 		super();
 		this.boardNo = boardNo;
 		this.recruitStatus = recruitStatus;

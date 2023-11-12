@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import web.dto.Board;
-import web.dto.GroupTb;
+import web.dto.Group;
 import web.dto.User;
 import web.util.Paging;
 
@@ -44,6 +44,15 @@ public interface GroupDao {
 	 * 유저 닉네임 가져오기
 	 */
 	public List<User> selectUserInfo();
+
+	/**
+	 * 게시글 내용 불러오기
+	 * @param board
+	 * @return
+	 */
+	public Map<String, Object> selectByContent(Board board);
+
+
 
 
 

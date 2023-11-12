@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import web.dao.face.GroupDao;
 import web.dto.Board;
-import web.dto.GroupTb;
+import web.dto.Group;
 import web.dto.User;
 import web.service.face.GroupService;
 import web.util.Paging;
@@ -63,6 +63,17 @@ public class GroupServiceImpl implements GroupService {
 		
 		return mapView;
 	      
+	}
+
+	@Override
+	public Map<String, Object> content(Board board) {
+		
+		Map<String, Object> contentView = new HashMap<>();
+		
+		//게시글 내용 조회
+		contentView = groupDao.selectByContent(board);
+		
+		return contentView;
 	}	
 
 
